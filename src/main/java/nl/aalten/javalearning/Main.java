@@ -13,6 +13,7 @@ public class Main {
         System.out.println("Mijn adres is " + edwin.getAdres());
 
         System.out.println("Mijn adres is " + test.getOud());
+        System.out.println("kleine wijzing voor test git");
 
     }
 
