@@ -19,7 +19,7 @@ Opdracht 2B:
 Bereken de juiste leeftijd rekening houdend met de dag waarop iemand geboren is.
 M.a.w. als het vandaag 01-06-2016 is, dan is de leeftijd :
 
-   geb.datum       leetijd
-  20-03-1980          36
-  01-06-1990          26
-  30-10-2000          15
+   geb.datum                    leeftijd
+  20-03-1980 (voor 1-6 jarig)       36
+  01-06-1990 (op 1-6 jarig)         26
+  30-10-2000 (na 1-6 jarig)         15
