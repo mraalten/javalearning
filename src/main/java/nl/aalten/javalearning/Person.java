@@ -3,12 +3,21 @@ package nl.aalten.javalearning;
 public class Person {
 
     private String naam;
+    private Adres adres;
+
     private String Straatnaam;
     private String Huisnummer;
     private String HuisnummerToevoeging;
     private String Postcode;
     private String Woonplaats;
 
+    public Person(String naam, Adres adres) {
+        this.naam = naam;
+        this.adres = adres;
+    }
+
+    public Person() {
+    }
 
     public void setNaam(String naam)
     {
