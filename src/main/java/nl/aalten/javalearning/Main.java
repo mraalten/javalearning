@@ -4,22 +4,42 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Person edwin = new Person();
-
-        edwin.setNaam("Edwin");
-        edwin.setStraatnaam("Goudsmidstraat");
-        edwin.setHuisnummer("12");
-        edwin.setHuisnummerToevoeging("AB");
-        edwin.setPostcode("5811 PP");
-        edwin.setWoonplaats("Venray");
+        Person naam = new Person();
+        Adres correspondentieAdres  = new Adres();
+        Adres factuurAdres   = new Adres();
 
 
-        System.out.println("Naam: " + edwin.getNaam());
-        System.out.println("Straatnaam " + edwin.getStraatnaam());
-        System.out.println("Huisnummer " + edwin.getHuisnummer());
-        System.out.println("HuisnummerToevoeging " + edwin.getHuisnummerToevoeging());
-        System.out.println("Postcode " + edwin.getPostcode());
-        System.out.println("Woonplaats: " + edwin.getWoonplaats());
+
+        naam.setNaam("Edwin");
+        correspondentieAdres.setStraatnaam("Goudsmidstraat");
+        correspondentieAdres.setHuisnummer("12");
+        correspondentieAdres.setHuisnummerToevoeging("AB");
+        correspondentieAdres.setPostcode("5811 PP");
+        correspondentieAdres.setWoonplaats("Venray");
+
+        factuurAdres.setStraatnaam("Willemstraat");
+        factuurAdres.setHuisnummer("44");
+        factuurAdres.setHuisnummerToevoeging("DD");
+        factuurAdres.setPostcode("1212 zz");
+        factuurAdres.setWoonplaats("Utrecht");
+
+
+
+        System.out.println("Naam: " + naam.getNaam());
+        System.out.println("Straatnaam " + correspondentieAdres.getStraatnaam());
+        System.out.println("Huisnummer " + correspondentieAdres.getHuisnummer());
+        System.out.println("HuisnummerToevoeging " + correspondentieAdres.getHuisnummerToevoeging());
+        System.out.println("Postcode " + correspondentieAdres.getPostcode());
+        System.out.println("Woonplaats: " + correspondentieAdres.getWoonplaats());
+        System.out.println("*************");
+        System.out.println("Naam: " + naam.getNaam());
+        System.out.println("Straatnaam " + factuurAdres.getStraatnaam());
+        System.out.println("Huisnummer " + factuurAdres.getHuisnummer());
+        System.out.println("HuisnummerToevoeging " + factuurAdres.getHuisnummerToevoeging());
+        System.out.println("Postcode " + factuurAdres.getPostcode());
+        System.out.println("Woonplaats: " + factuurAdres.getWoonplaats());
+
+
     }
 
 }
