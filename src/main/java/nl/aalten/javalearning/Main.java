@@ -24,7 +24,6 @@ public class Main {
         factuurAdres.setWoonplaats("Utrecht");
 
 
-
         System.out.println("Naam: " + naam.getNaam());
         System.out.println("Straatnaam " + correspondentieAdres.getStraatnaam());
         System.out.println("Huisnummer " + correspondentieAdres.getHuisnummer());
