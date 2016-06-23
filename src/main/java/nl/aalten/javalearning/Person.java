@@ -14,5 +14,4 @@ public class Person {
         return this.naam;
     }
 
-
 }
