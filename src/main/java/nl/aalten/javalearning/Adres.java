@@ -57,5 +57,4 @@ public class Adres {
         return this.Woonplaats;
     }
 
-
 }
