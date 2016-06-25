@@ -1,17 +1,24 @@
 package nl.aalten.javalearning;
 
-/**
- * Created by edwincox on 22-6-2016.
- */
 public class Adres {
 
 
-    private String Straatnaam;
-    private String Huisnummer;
-    private String HuisnummerToevoeging;
-    private String Postcode;
-    private String Woonplaats;
+    private String straatnaam;
+    private String huisnummer;
+    private String huisnummerToevoeging;
+    private String postcode;
+    private String woonplaats;
 
+    @Override
+    public String toString() {
+        return "Adres{" +
+                "straatnaam='" + straatnaam + '\'' +
+                ", huisnummer='" + huisnummer + '\'' +
+                ", huisnummerToevoeging='" + huisnummerToevoeging + '\'' +
+                ", postcode='" + postcode + '\'' +
+                ", woonplaats='" + woonplaats + '\'' +
+                '}';
+    }
 
     @Override
     public String toString(){
@@ -24,47 +31,47 @@ public class Adres {
 
 
     public void setStraatnaam(String Straatnaam){
-        this.Straatnaam = Straatnaam;
+        this.straatnaam = Straatnaam;
     }
 
     public String getStraatnaam() {
-        return this.Straatnaam;
+        return this.straatnaam;
     }
 
     public void setHuisnummer(String Huisnummer)
     {
-        this.Huisnummer = Huisnummer;
+        this.huisnummer = Huisnummer;
     }
 
     public String getHuisnummer() {
-        return this.Huisnummer;
+        return this.huisnummer;
     }
 
     public void setHuisnummerToevoeging(String HuisnummerToevoeging)
     {
-        this.HuisnummerToevoeging = HuisnummerToevoeging;
+        this.huisnummerToevoeging = HuisnummerToevoeging;
     }
 
     public String getHuisnummerToevoeging() {
-        return this.HuisnummerToevoeging;
+        return this.huisnummerToevoeging;
     }
 
     public void setPostcode(String Postcode)
     {
-        this.Postcode = Postcode;
+        this.postcode = Postcode;
     }
 
     public String getPostcode() {
-        return this.Postcode;
+        return this.postcode;
     }
 
     public void setWoonplaats(String Woonplaats)
     {
-        this.Woonplaats = Woonplaats;
+        this.woonplaats = Woonplaats;
     }
 
     public String getWoonplaats() {
-        return this.Woonplaats;
+        return this.woonplaats;
     }
 
 }
