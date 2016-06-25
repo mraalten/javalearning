@@ -20,13 +20,6 @@ public class Adres {
                 '}';
     }
 
-    @Override
-    public String toString(){
-        return "Straatnaam: " + this.Straatnaam + " Huisnummer: " + this.Huisnummer
-                + " HuisnummerToevoeging: " + this.HuisnummerToevoeging
-                + " Postcode: " + this.Postcode
-                + " Woonplaats: " + this.Woonplaats;
-    }
 
 
 
