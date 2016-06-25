@@ -13,6 +13,16 @@ public class Adres {
     private String Woonplaats;
 
 
+    @Override
+    public String toString(){
+        return "Straatnaam: " + this.Straatnaam + " Huisnummer: " + this.Huisnummer
+                + " HuisnummerToevoeging: " + this.HuisnummerToevoeging
+                + " Postcode: " + this.Postcode
+                + " Woonplaats: " + this.Woonplaats;
+    }
+
+
+
     public void setStraatnaam(String Straatnaam){
         this.Straatnaam = Straatnaam;
     }
