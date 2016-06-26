@@ -4,7 +4,7 @@ public class Person {
 
     private String naam;
     private Adres correspondentieAdres;
-    private Adres vestigingsAdres;
+    private BerekenGeboortedatum berekenGeboorte;
 
     public void setNaam(String naam)
     {
@@ -23,4 +23,14 @@ public class Person {
     public Adres setCorrespondentieAdres(Adres correspondentieAdres){
         return this.correspondentieAdres = correspondentieAdres;
     }
+
+    public BerekenGeboortedatum getberekenGeboorte(){
+        return this.getberekenGeboorte();
+    }
+
+    public BerekenGeboortedatum setberekenGeboorte(BerekenGeboortedatum berekenGeboorte){
+        return this.berekenGeboorte = berekenGeboorte;
+    }
+
+
 }

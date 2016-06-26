@@ -14,9 +14,13 @@ public class Main {
         richard.setNaam("richard");
         System.out.println("Naam: " + richard.getNaam());
 
-        BerekenGeboortedatum bart = new BerekenGeboortedatum();
-        bart.setDatum(new Date(84, 6, 6));
-        System.out.println("Bart geboortedatum " + bart.getDatum());
+
+        Person bart = new Person();
+        bart.setberekenGeboorte(geboorteCreate("Bart Cox", new Date(99, 1, 1)));
+        System.out.println(bart.getberekenGeboorte());
+        //BerekenGeboortedatum bart = new BerekenGeboortedatum();
+        //bart.setDatum(new Date(84, 6, 6));
+        //System.out.println("Bart geboortedatum " + bart.getNaam() + bart.getDatum());
 
 
         //Adres printAdres1 = adresCreate("Goudsmidstraat", "22", "aa", "8989 ZZ", "Venraytje");
@@ -55,6 +59,13 @@ public class Main {
         correspondentieAdres.setWoonplaats(woonplaats);
         return correspondentieAdres;
 
+    }
+
+    private static BerekenGeboortedatum geboorteCreate(String naam, Date datum){
+        BerekenGeboortedatum berekenGeboortedatum = new BerekenGeboortedatum();
+        berekenGeboortedatum.setNaam(naam);
+        berekenGeboortedatum.setDatum(datum);
+        return berekenGeboortedatum;
     }
 
 
