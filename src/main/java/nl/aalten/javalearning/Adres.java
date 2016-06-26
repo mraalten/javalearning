@@ -11,17 +11,13 @@ public class Adres {
 
     @Override
     public String toString() {
-        return "Adres{" +
+        return "Adres" +
                 "straatnaam='" + straatnaam + '\'' +
                 ", huisnummer='" + huisnummer + '\'' +
                 ", huisnummerToevoeging='" + huisnummerToevoeging + '\'' +
                 ", postcode='" + postcode + '\'' +
-                ", woonplaats='" + woonplaats + '\'' +
-                '}';
+                ", woonplaats='" + woonplaats + '\'';
     }
-
-
-
 
     public void setStraatnaam(String Straatnaam){
         this.straatnaam = Straatnaam;
