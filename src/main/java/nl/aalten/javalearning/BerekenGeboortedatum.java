@@ -13,7 +13,6 @@ public class BerekenGeboortedatum extends Person {
     }
 
 
-
     public Date getDatum() {
         return datum;
     }
@@ -21,6 +20,5 @@ public class BerekenGeboortedatum extends Person {
     public void setDatum(Date datum) {
         this.datum = datum;
     }
-
 
 }
