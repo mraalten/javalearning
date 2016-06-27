@@ -18,6 +18,7 @@ public class Main {
         Person bart = new Person();
         bart.setberekenGeboorte(geboorteCreate("Bart Cox", new Date(99, 1, 1)));
         System.out.println(bart.getberekenGeboorte());
+        System.out.println("******");
         //BerekenGeboortedatum bart = new BerekenGeboortedatum();
         //bart.setDatum(new Date(84, 6, 6));
         //System.out.println("Bart geboortedatum " + bart.getNaam() + bart.getDatum());

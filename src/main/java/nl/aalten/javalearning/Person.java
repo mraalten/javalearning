@@ -6,6 +6,11 @@ public class Person {
     private Adres correspondentieAdres;
     private BerekenGeboortedatum berekenGeboorte;
 
+    @Override
+    public String toString() {
+        return naam;
+    }
+
     public void setNaam(String naam)
     {
         this.naam = naam;
@@ -25,7 +30,7 @@ public class Person {
     }
 
     public BerekenGeboortedatum getberekenGeboorte(){
-        return this.getberekenGeboorte();
+        return this.berekenGeboorte;
     }
 
     public BerekenGeboortedatum setberekenGeboorte(BerekenGeboortedatum berekenGeboorte){
