@@ -1,5 +1,7 @@
 package nl.aalten.javalearning;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import java.util.Date;
 
@@ -7,8 +9,12 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Logger logger=Logger.getLogger("LogDemo");
+        PropertyConfigurator.configure("Log4j.properties");
+
         Person edwin = new Person();
         edwin.setNaam("Edwin");
+        logger.error("Object Edwin wordt gemaakt");
 
         Person richard = new Person();
         richard.setNaam("richard");
