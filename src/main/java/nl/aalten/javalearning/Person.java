@@ -40,6 +40,4 @@ public class Person {
         return this.correspondentieAdres = correspondentieAdres;
     }
 
-
-
 }
