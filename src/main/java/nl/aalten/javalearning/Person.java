@@ -1,10 +1,13 @@
 package nl.aalten.javalearning;
 
+import java.util.Date;
+
 public class Person {
 
     private String naam;
     private Adres correspondentieAdres;
     private int GeboorteDatum ;
+    private Date GeboorteDatumProbeer;
 
 
     public int getGeboorteDatum() {
@@ -15,6 +18,14 @@ public class Person {
         int jaarNu = 2016;
         int leeftijdis = jaarNu - geboorteDatum;
         GeboorteDatum = leeftijdis;
+    }
+
+    public Date getGeboorteDatumProbeer() {
+        return GeboorteDatumProbeer;
+    }
+
+    public void setGeboorteDatumProbeer(Date geboorteDatumProbeer) {
+        GeboorteDatumProbeer = geboorteDatumProbeer;
     }
 
     @Override

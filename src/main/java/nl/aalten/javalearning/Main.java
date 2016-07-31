@@ -1,5 +1,7 @@
 package nl.aalten.javalearning;
 
+import java.util.Date;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -7,23 +9,32 @@ public class Main {
         //Logger logger=Logger.getLogger("LogDemo");
         //PropertyConfigurator.configure("Log4j.properties");
 
-        Person edwin = new Person();
-        edwin.setNaam("Edwin");
+//        Person edwin = new Person();
+//        edwin.setNaam("Edwin");
         //logger.info("Object Edwin wordt gemaakt");
 
 //        Person richard = new Person();
 //        richard.setNaam("richard");
 //        System.out.println("Naam: " + richard.getNaam());
 
-
+        // De makkelijke manier
         Person bart = new Person();
         bart.setNaam("Bart Cox");
-
-        //bart.setGeboorteDatum(new Date(1984, 06, 06));
         bart.setGeboorteDatum(1988);
-
         System.out.println("De de naam is: " + bart.getNaam() + " en mijn leeftijd is: " + bart.getGeboorteDatum() );
 
+        // Functie met Date
+        Person edwin = new Person();
+        edwin.setNaam("Edwin");
+        edwin.setGeboorteDatumProbeer(new Date(70, 4, 9));
+        System.out.println("Leeftijd is " + edwin.getGeboorteDatumProbeer());
+
+
+
+
+        //edwin.setGeboorteDatumMetDate(new Date(70, 4, 9));
+
+        //System.out.println("De de naam is: " + edwin.getNaam() + " en mijn leeftijd is: " + edwin.getGeboorteDatumMetDate());
 
 
 
@@ -39,7 +50,6 @@ public class Main {
 //        System.out.println("" + printCorres1);
 
     }
-
 
 
     private static Adres adresCreate(String straatnaam, String Huisnummer, String HuisnummerToevoeging, String postcode, String Woonplaats){
