@@ -1,50 +1,46 @@
 package nl.aalten.javalearning;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
-
-import java.util.Date;
-
 public class Main {
 
     public static void main(String[] args) {
 
-        Logger logger=Logger.getLogger("LogDemo");
-        PropertyConfigurator.configure("Log4j.properties");
+        //Logger logger=Logger.getLogger("LogDemo");
+        //PropertyConfigurator.configure("Log4j.properties");
 
         Person edwin = new Person();
         edwin.setNaam("Edwin");
-        logger.error("Object Edwin wordt gemaakt");
+        //logger.info("Object Edwin wordt gemaakt");
 
-        Person richard = new Person();
-        richard.setNaam("richard");
-        System.out.println("Naam: " + richard.getNaam());
+//        Person richard = new Person();
+//        richard.setNaam("richard");
+//        System.out.println("Naam: " + richard.getNaam());
 
 
         Person bart = new Person();
-        bart.setberekenGeboorte(geboorteCreate("Bart Cox", new Date(99, 1, 1)));
-        System.out.println(bart.getberekenGeboorte());
-        System.out.println("******");
-        //BerekenGeboortedatum bart = new BerekenGeboortedatum();
-        //bart.setDatum(new Date(84, 6, 6));
-        //System.out.println("Bart geboortedatum " + bart.getNaam() + bart.getDatum());
+        bart.setNaam("Bart Cox");
+
+        //bart.setGeboorteDatum(new Date(1984, 06, 06));
+        bart.setGeboorteDatum(1988);
+
+        System.out.println("De de naam is: " + bart.getNaam() + " en mijn leeftijd is: " + bart.getGeboorteDatum() );
 
 
-        //Adres printAdres1 = adresCreate("Goudsmidstraat", "22", "aa", "8989 ZZ", "Venraytje");
-        //edwin.setCorrespondentieAdres(printAdres1);
-        // Uitprobeersel bovenste code
-        edwin.setCorrespondentieAdres(adresCreate("Goudsmidstraat", "22", "aa", "8989 ZZ", "Venraytje"));
-        System.out.println(edwin.getCorrespondentieAdres());
 
-        System.out.println("***********");
-        Adres printAdres2 = adresCreate("drabbelsweg", "6", "ZF", "3434 er", "Veulen");
-        System.out.println(printAdres2);
 
-        System.out.println("*************");
-        Factuuradres printCorres1 = correspondentieCreate("Bolliewood", "666", "LL", "3434 pp", "9999 TT","Hollywood");
-        System.out.println("" + printCorres1);
+//        edwin.setCorrespondentieAdres(adresCreate("Goudsmidstraat", "22", "aa", "8989 ZZ", "Venraytje"));
+//        System.out.println(edwin.getCorrespondentieAdres());
+//
+//        System.out.println("***********");
+//        Adres printAdres2 = adresCreate("drabbelsweg", "6", "ZF", "3434 er", "Veulen");
+//        System.out.println(printAdres2);
+//
+//        System.out.println("*************");
+//        Factuuradres printCorres1 = correspondentieCreate("Bolliewood", "666", "LL", "3434 pp", "9999 TT","Hollywood");
+//        System.out.println("" + printCorres1);
 
     }
+
+
 
     private static Adres adresCreate(String straatnaam, String Huisnummer, String HuisnummerToevoeging, String postcode, String Woonplaats){
         Adres adres  = new Adres();
@@ -68,12 +64,6 @@ public class Main {
 
     }
 
-    private static BerekenGeboortedatum geboorteCreate(String naam, Date datum){
-        BerekenGeboortedatum berekenGeboortedatum = new BerekenGeboortedatum();
-        berekenGeboortedatum.setNaam(naam);
-        berekenGeboortedatum.setDatum(datum);
-        return berekenGeboortedatum;
-    }
 
 
 

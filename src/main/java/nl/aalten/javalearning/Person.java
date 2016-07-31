@@ -4,11 +4,22 @@ public class Person {
 
     private String naam;
     private Adres correspondentieAdres;
-    private BerekenGeboortedatum berekenGeboorte;
+    private int GeboorteDatum ;
+
+
+    public int getGeboorteDatum() {
+        return GeboorteDatum;
+    }
+
+    public void setGeboorteDatum(int geboorteDatum) {
+        int jaarNu = 2016;
+        int leeftijdis = jaarNu - geboorteDatum;
+        GeboorteDatum = leeftijdis;
+    }
 
     @Override
     public String toString() {
-        return naam;
+        return "Naam " + naam;
     }
 
     public void setNaam(String naam)
@@ -29,13 +40,6 @@ public class Person {
         return this.correspondentieAdres = correspondentieAdres;
     }
 
-    public BerekenGeboortedatum getberekenGeboorte(){
-        return this.berekenGeboorte;
-    }
-
-    public BerekenGeboortedatum setberekenGeboorte(BerekenGeboortedatum berekenGeboorte){
-        return this.berekenGeboorte = berekenGeboorte;
-    }
 
 
 }

@@ -11,7 +11,7 @@ public class Adres {
 
     @Override
     public String toString() {
-        return "Adres" +
+        return "Adres " +
                 "straatnaam='" + straatnaam + '\'' +
                 ", huisnummer='" + huisnummer + '\'' +
                 ", huisnummerToevoeging='" + huisnummerToevoeging + '\'' +
