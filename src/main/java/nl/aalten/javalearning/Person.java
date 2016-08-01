@@ -6,31 +6,29 @@ public class Person {
 
     private String naam;
     private Adres correspondentieAdres;
-    private int GeboorteDatum ;
-    private Date GeboorteDatumProbeer;
+    private Date geboorteDatum;
+    private Person partner;
 
-
-    public int getGeboorteDatum() {
-        return GeboorteDatum;
+    public Person getPartner() {
+        return partner;
     }
 
-    public void setGeboorteDatum(int geboorteDatum) {
-        int jaarNu = 2016;
-        int leeftijdis = jaarNu - geboorteDatum;
-        GeboorteDatum = leeftijdis;
+    public void setPartner(Person partner) {
+        this.partner = partner;
     }
 
-    public Date getGeboorteDatumProbeer() {
-        return GeboorteDatumProbeer;
+
+    public Date getGeboorteDatum() {
+        return geboorteDatum;
     }
 
-    public void setGeboorteDatumProbeer(Date geboorteDatumProbeer) {
-        GeboorteDatumProbeer = geboorteDatumProbeer;
+    public void setGeboorteDatum(Date geboorteDatum) {
+        this.geboorteDatum = geboorteDatum;
     }
 
     @Override
     public String toString() {
-        return "Naam " + naam;
+        return "Naam: " + naam + ", geb.datum: " + geboorteDatum;
     }
 
     public void setNaam(String naam)
@@ -51,4 +49,15 @@ public class Person {
         return this.correspondentieAdres = correspondentieAdres;
     }
 
+    /**
+     * This method returns an age based on
+     * @return the age
+     */
+    public int getLeeftijd() {
+        Date today = new Date();
+        int year = today.getYear();
+        int yearBirthDate = geboorteDatum.getYear();
+
+        return year - yearBirthDate;
+    }
 }
