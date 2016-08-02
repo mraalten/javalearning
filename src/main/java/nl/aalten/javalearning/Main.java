@@ -15,7 +15,7 @@ public class Main {
         // Functie met Date
         Person edwin = new Person();
         edwin.setNaam("Edwin");
-        edwin.setGeboorteDatum(new Date(70, 10, 9));
+        edwin.setGeboorteDatum(new Date(84, 7, 2));
 
         Person nicolette = new Person();
         nicolette.setNaam("Nicolette");

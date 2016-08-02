@@ -58,6 +58,25 @@ public class Person {
         int year = today.getYear();
         int yearBirthDate = geboorteDatum.getYear();
 
-        return year - yearBirthDate;
+        int monthNow = today.getMonth();
+        int monthBirtDate = geboorteDatum.getMonth();
+
+        int dayToday = today.getDay();
+        int dayBirtDate = geboorteDatum.getDay();
+
+        if (monthNow >= monthBirtDate) {
+            if (dayToday >= dayBirtDate) {
+                System.out.println("1 jaar ouder");
+
+                int age = (year - yearBirthDate);
+                return age;
+
+            } else {
+                return year - yearBirthDate;
+            }
+
+        } else {
+            return year - yearBirthDate;
+        }
     }
 }
