@@ -1,7 +1,5 @@
 package nl.aalten.javalearning;
 
-import java.util.Date;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -14,21 +12,29 @@ public class Main {
 
         // Functie met Date
         Person edwin = new Person();
-        edwin.setNaam("Edwin");
-        edwin.setGeboorteDatum(new Date(84, 7, 2));
+//        edwin.setNaam("Edwin");
+//        edwin.setGeboorteDatum(new Date(84, 7, 2));
 
-        Person nicolette = new Person();
-        nicolette.setNaam("Nicolette");
+        edwin.setbankAccount(12121284);
+        edwin.setSaldo(0);
+        edwin.stortGeld(12);
+        edwin.stortGeld(12);
+        edwin.geldOpnemen(44);
 
-        edwin.setPartner(nicolette);
 
-        System.out.println("De de naam is: " + edwin.getNaam() + " en mijn leeftijd is: " + edwin.getLeeftijd() );
-        System.out.println("Mijn geboortedatum is " + edwin.getGeboorteDatum());
-        System.out.println("De partner van Edwin is : " + edwin.getPartner());
+//        Person nicolette = new Person();
+//        nicolette.setNaam("Nicolette");
+//
+//        edwin.setPartner(nicolette);
+//
+//        System.out.println("De de naam is: " + edwin.getNaam() + " en mijn leeftijd is: " + edwin.getLeeftijd() );
+//        System.out.println("Mijn geboortedatum is " + edwin.getGeboorteDatum());
+//        System.out.println("De partner van Edwin is : " + edwin.getPartner());
+//        System.out.println("De partner van Nicolette is : " + nicolette.getPartner());
+        System.out.println("Edwin's bankaccount is: " + edwin.getbankAccount() + " mijn saldo is: " + edwin.getSaldo());
+//        System.out.println(edwin);
 
-        System.out.println("De partner van Nicolette is : " + nicolette.getPartner());
 
-        System.out.println(edwin);
 
     }
 
