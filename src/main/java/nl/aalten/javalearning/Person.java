@@ -1,12 +1,12 @@
 package nl.aalten.javalearning;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Person {
 
     private String naam;
     private Adres correspondentieAdres;
-    private Date geboorteDatum;
+    private LocalDate geboorteDatum;
     private Person partner;
     private int bankAccount;
     private int saldo;
@@ -20,11 +20,11 @@ public class Person {
     }
 
 
-    public Date getGeboorteDatum() {
+    public LocalDate getGeboorteDatum() {
         return geboorteDatum;
     }
 
-    public void setGeboorteDatum(Date geboorteDatum) {
+    public void setGeboorteDatum(LocalDate geboorteDatum) {
         this.geboorteDatum = geboorteDatum;
     }
 
@@ -56,15 +56,15 @@ public class Person {
      * @return the age
      */
     public int getLeeftijd() {
-        Date today = new Date();
+        LocalDate today = LocalDate.now();
         int year = today.getYear();
         int yearBirthDate = geboorteDatum.getYear();
 
-        int monthNow = today.getMonth();
-        int monthBirtDate = geboorteDatum.getMonth();
+        int monthNow = today.getMonth().getValue();
+        int monthBirtDate = geboorteDatum.getMonth().getValue();
 
-        int dayToday = today.getDay();
-        int dayBirtDate = geboorteDatum.getDay();
+        int dayToday = today.getDayOfMonth();
+        int dayBirtDate = geboorteDatum.getDayOfMonth();
 
         if (monthNow >= monthBirtDate) {
             if (dayToday >= dayBirtDate) {
