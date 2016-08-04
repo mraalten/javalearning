@@ -1,5 +1,7 @@
 package nl.aalten.javalearning;
 
+import java.time.LocalDate;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -12,11 +14,9 @@ public class Main {
 
         // Functie met Date
         Person edwin = new Person();
-//        edwin.setNaam("Edwin");
-//        edwin.setGeboorteDatum(new Date(84, 7, 2));
-
+        edwin.setNaam("Edwin");
+        edwin.setGeboorteDatum(LocalDate.of(1984, 7, 2));
         edwin.setbankAccount(12121284);
-        edwin.setSaldo(0);
         edwin.stortGeld(12);
         edwin.stortGeld(12);
         edwin.geldOpnemen(44);

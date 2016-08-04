@@ -57,29 +57,14 @@ public class Person {
      */
     public int getLeeftijd() {
         LocalDate today = LocalDate.now();
-        int year = today.getYear();
+
         int yearBirthDate = geboorteDatum.getYear();
-
-        int monthNow = today.getMonth().getValue();
-        int monthBirtDate = geboorteDatum.getMonth().getValue();
-
-        int dayToday = today.getDayOfMonth();
-        int dayBirtDate = geboorteDatum.getDayOfMonth();
-
-        if (monthNow >= monthBirtDate) {
-            if (dayToday >= dayBirtDate) {
-                System.out.println("1 jaar ouder");
-
-                int age = (year - yearBirthDate);
-                return age;
-
-            } else {
-                return year - yearBirthDate;
-            }
-
-        } else {
-            return year - yearBirthDate;
+        int age = today.getYear() - yearBirthDate;
+        LocalDate birthDateCurrentYear = LocalDate.of(today.getYear(), geboorteDatum.getMonth().getValue(), geboorteDatum.getDayOfMonth());
+        if (birthDateCurrentYear.isAfter(today)) {
+            return age - 1;
         }
+        return age;
     }
 
     public int getbankAccount() {
