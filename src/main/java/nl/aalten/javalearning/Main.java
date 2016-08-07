@@ -14,12 +14,17 @@ public class Main {
 
         // Functie met Date
         Person edwin = new Person();
+
+
+        Bankaccount edwint = new Bankaccount(12121284);
+        edwint.stortGeld(200);
         edwin.setNaam("Edwin");
         edwin.setGeboorteDatum(LocalDate.of(1984, 7, 2));
-        edwin.setbankAccount(12121284);
-        edwin.stortGeld(12);
-        edwin.stortGeld(12);
-        edwin.geldOpnemen(44);
+//        edwin.setbankAccount(12121284);
+//        edwin.stortGeld(12);
+//        edwin.stortGeld(12);
+//        edwin.geldOpnemen(44);
+
 
 
 //        Person nicolette = new Person();
@@ -31,7 +36,7 @@ public class Main {
 //        System.out.println("Mijn geboortedatum is " + edwin.getGeboorteDatum());
 //        System.out.println("De partner van Edwin is : " + edwin.getPartner());
 //        System.out.println("De partner van Nicolette is : " + nicolette.getPartner());
-        System.out.println("Edwin's bankaccount is: " + edwin.getbankAccount() + " mijn saldo is: " + edwin.getSaldo());
+        System.out.println("Edwin's bankaccount is: " + edwint.getBankAccount() + " het saldo is: " + edwint.getSaldo());
 //        System.out.println(edwin);
 
 

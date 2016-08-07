@@ -8,8 +8,6 @@ public class Person {
     private Adres correspondentieAdres;
     private LocalDate geboorteDatum;
     private Person partner;
-    private int bankAccount;
-    private int saldo;
 
     public Person getPartner() {
         return partner;
@@ -67,39 +65,8 @@ public class Person {
         return age;
     }
 
-    public int getbankAccount() {
-        return bankAccount;
-    }
 
-    public void setbankAccount(int bankAccount) {
-        this.bankAccount = bankAccount;
-    }
 
-    public int getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(int saldo) {
-        this.saldo = saldo;
-    }
-
-    public void stortGeld(int stortGeld){
-        System.out.println("U stort het voglende bedrag " + stortGeld);
-        saldo = stortGeld + saldo;
-        System.out.println("Uw saldo bedraagt nu " + saldo);
-    }
-
-    public void geldOpnemen(int geldOpnemen){
-        if(saldo < 0){
-            System.out.println("U kunt geen geld opnemen saldo te weinig");
-        }else if (geldOpnemen > saldo){
-            System.out.println("U kunt geen geld opnemen saldo te weinig");
-        }else {
-            System.out.println("U wilt het volgende bedrag opnemen " + geldOpnemen);
-            saldo = saldo - geldOpnemen;
-            System.out.println("U bedrag is nu " + saldo);
-        }
-    }
 
 
 }

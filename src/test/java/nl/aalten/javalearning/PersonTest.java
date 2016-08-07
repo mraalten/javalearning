@@ -34,8 +34,9 @@ public class PersonTest {
 
     @Test(expected = IllegalStateException.class)
     public void it_should_do_nothing_when_saldo_is_zero() {
-        Person person = new Person();
-        person.geldOpnemen(10);
+        //Person person = new Person();
+        Bankaccount bankaccount = new Bankaccount(121212);
+        bankaccount.geldOpnemen(10);
     }
 
     @Test(expected = IllegalStateException.class)
