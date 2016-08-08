@@ -5,13 +5,14 @@ import java.time.LocalDate;
 public class Person {
 
     public static final int MINIMUM_START_SALDO = 100;
+
     private String naam;
     private Adres correspondentieAdres;
     private Bankaccount bankaccount;
     private LocalDate geboorteDatum;
     private Person partner;
 
-    public Person(String naam, String rekeningNummer, int startSaldo) {
+    public Person(String naam, LocalDate geboortDatum, String rekeningNummer, int startSaldo) {
         this.naam = naam;
         if (rekeningNummer != null){
             if (startSaldo >= MINIMUM_START_SALDO){
@@ -19,15 +20,10 @@ public class Person {
             } else {
                 throw new IllegalStateException("Minder dan 100 euro gestort, min 100 storten");
             }
-
         } else {
             throw new IllegalStateException("Rekeningnummer is verplicht.");
         }
-
-
     }
-
-
 
     public Bankaccount getBankaccount() {
         return bankaccount;

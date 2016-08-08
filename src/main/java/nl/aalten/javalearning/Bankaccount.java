@@ -13,7 +13,7 @@ public class Bankaccount{
         this.saldo = saldo;
     }
 
-    public String getbankAccount(){
+    public String getRekeningNummer(){
         return rekeningnummer;
     }
 
@@ -30,9 +30,11 @@ public class Bankaccount{
     }
 
     public void stortGeld(int stortGeld){
-        System.out.println("U stort het volgende bedrag " + stortGeld);
-        saldo = stortGeld + saldo;
-        System.out.println("Uw saldo bedraagt nu " + saldo);
+        if (stortGeld >= 0) {
+            saldo = stortGeld + saldo;
+        } else {
+            throw new IllegalArgumentException("U kunt geen negatief bedrag storten");
+        }
     }
 
     public void geldOpnemen(int geldOpenmen){
@@ -41,9 +43,7 @@ public class Bankaccount{
         }else if (geldOpenmen > saldo){
             System.out.println("U kunt geen geld opnemen saldo te weinig");
         }else{
-            System.out.println("U wilt het volgende bedrag opnemen " + geldOpenmen);
             saldo = saldo - geldOpenmen;
-            System.out.println("U bedrag is nu " + saldo);
         }
     }
 

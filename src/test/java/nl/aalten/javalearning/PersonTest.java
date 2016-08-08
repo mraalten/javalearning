@@ -44,7 +44,7 @@ public class PersonTest {
     }
 
     private Person getValidPersonObject() {
-        return new Person("edwin", "12345", 100);
+        return new Person("edwin", LocalDate.now(), "12345", 100);
     }
 
 //    @Test

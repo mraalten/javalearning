@@ -1,28 +1,25 @@
-package nl.aalten.javalearning;
+package nl.aalten.javalearning.application;
+
+import nl.aalten.javalearning.Adres;
+import nl.aalten.javalearning.Factuuradres;
+import nl.aalten.javalearning.Person;
 
 import java.time.LocalDate;
 
-public class Main {
+public class BankApplication {
 
     public static void main(String[] args) {
 
-        // De makkelijke manier
-//        Person bart = new Person();
-//        bart.setNaam("Bart Cox");
-//        bart.setGeboorteDatum(1988);
-//        System.out.println("De de naam is: " + bart.getNaam() + " en mijn leeftijd is: " + bart.getLeeftijd() );
+        Bank rabobank = new Bank();
 
-        // Functie met Date
-        Person hans = new Person("Hans", "454545", 100);
-        System.out.println(hans.getNaam() + " " + hans.getBankaccount());
+        Person richard = new Person("Richard", LocalDate.of(1970, 4, 9), "NLRABO0354223546", 150);
+        rabobank.addCustomer(richard);
+        rabobank.deposit(richard, 175);
 
-        Person edwin = new Person("Edwin", "99999", 150);
-        edwin.setGeboorteDatum(LocalDate.of(1984, 7, 2));
-        System.out.println(edwin.getSaldo());
-        System.out.println("Edwin's bankaccount is: " + edwin.getBankaccount() + " het saldo is: " + edwin.getBankaccount().getSaldo());
-
+        Person edwin = new Person("Edwin", LocalDate.of(1984, 7, 2), "NLRABO0233456437", 200);
+        rabobank.addCustomer(edwin);
+        rabobank.withdraw(edwin, 75);
     }
-
 
     private static Adres adresCreate(String straatnaam, String Huisnummer, String HuisnummerToevoeging, String postcode, String Woonplaats){
         Adres adres  = new Adres();
