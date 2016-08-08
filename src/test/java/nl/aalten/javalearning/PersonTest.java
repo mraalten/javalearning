@@ -9,26 +9,20 @@ import static org.junit.Assert.assertThat;
 
 public class PersonTest {
 
-    @Test
-    (expected = IllegalStateException.class)
+    @Test(expected = IllegalStateException.class)
     public void it_should_do_nothing_when_it_is_0(){
-        Person person = new Person("Fred", "4545", 0);
+        Person person = new Person("Fred", LocalDate.of(1984, 2, 7), "4545", 0);
     }
 
-    @Test
-    (expected = IllegalStateException.class)
+    @Test(expected = IllegalStateException.class)
     public void it_should_do_nothing_when_it_is_negative_number(){
-        Person person = new Person("Fred", "4545", -9);
+        Person person = new Person("Fred", LocalDate.of(1984, 2, 7), "4545", -9);
     }
 
-    @Test
-    (expected = IllegalStateException.class)
+    @Test(expected = IllegalStateException.class)
     public void it_should_do_nothing_when_there_is_not_a_accountnumber(){
-        Person person = new Person("Fred");
+        Person person = new Person("Fred", LocalDate.of(1984, 2, 7), "NLRABO1234", 2);
     }
-
-    @Test
-
 
     @Override
     public boolean equals(Object obj) {
