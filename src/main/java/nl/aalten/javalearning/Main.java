@@ -13,33 +13,13 @@ public class Main {
 //        System.out.println("De de naam is: " + bart.getNaam() + " en mijn leeftijd is: " + bart.getLeeftijd() );
 
         // Functie met Date
-        Person edwin = new Person();
+        Person hans = new Person("Hans", "454545", 100);
+        System.out.println(hans.getNaam() + " " + hans.getBankaccount());
 
-
-        Bankaccount edwint = new Bankaccount(12121284);
-        edwint.stortGeld(200);
-        edwin.setNaam("Edwin");
+        Person edwin = new Person("Edwin", "99999", 150);
         edwin.setGeboorteDatum(LocalDate.of(1984, 7, 2));
-//        edwin.setbankAccount(12121284);
-//        edwin.stortGeld(12);
-//        edwin.stortGeld(12);
-//        edwin.geldOpnemen(44);
-
-
-
-//        Person nicolette = new Person();
-//        nicolette.setNaam("Nicolette");
-//
-//        edwin.setPartner(nicolette);
-//
-//        System.out.println("De de naam is: " + edwin.getNaam() + " en mijn leeftijd is: " + edwin.getLeeftijd() );
-//        System.out.println("Mijn geboortedatum is " + edwin.getGeboorteDatum());
-//        System.out.println("De partner van Edwin is : " + edwin.getPartner());
-//        System.out.println("De partner van Nicolette is : " + nicolette.getPartner());
-        System.out.println("Edwin's bankaccount is: " + edwint.getBankAccount() + " het saldo is: " + edwint.getSaldo());
-//        System.out.println(edwin);
-
-
+        System.out.println(edwin.getSaldo());
+        System.out.println("Edwin's bankaccount is: " + edwin.getBankaccount() + " het saldo is: " + edwin.getBankaccount().getSaldo());
 
     }
 

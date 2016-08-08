@@ -3,18 +3,26 @@ package nl.aalten.javalearning;
 /**
  * Created by edwincox on 7-8-2016.
  */
-public class Bankaccount extends Person {
+public class Bankaccount{
 
-    private int bankAccount;
+    private String rekeningnummer;
     private int saldo;
 
-    public Bankaccount(int bankAccount) {
-        this.bankAccount = bankAccount;
-        this.saldo = 0;
+    public Bankaccount(String rekeningnummer, int saldo) {
+        this.rekeningnummer = rekeningnummer;
+        this.saldo = saldo;
     }
 
-    public int getBankAccount() {
-        return bankAccount;
+    public String getbankAccount(){
+        return rekeningnummer;
+    }
+
+    @Override
+    public String toString() {
+        return "Bankaccount{" +
+                "rekeningnummer='" + rekeningnummer + '\'' +
+                ", saldo=" + saldo +
+                '}';
     }
 
     public int getSaldo() {
@@ -22,7 +30,7 @@ public class Bankaccount extends Person {
     }
 
     public void stortGeld(int stortGeld){
-        System.out.println("U stort het voglende bedrag " + stortGeld);
+        System.out.println("U stort het volgende bedrag " + stortGeld);
         saldo = stortGeld + saldo;
         System.out.println("Uw saldo bedraagt nu " + saldo);
     }
