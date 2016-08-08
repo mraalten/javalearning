@@ -21,7 +21,7 @@ public class PersonTest {
 
     @Test(expected = IllegalStateException.class)
     public void it_should_do_nothing_when_there_is_not_a_accountnumber(){
-        Person person = new Person("Fred", LocalDate.of(1984, 2, 7), "NLRABO1234", 2);
+        Person person = new Person("Fred", LocalDate.of(1984, 2, 7), null, 2);
     }
 
     @Override
