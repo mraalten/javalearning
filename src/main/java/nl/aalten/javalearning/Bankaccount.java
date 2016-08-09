@@ -37,13 +37,11 @@ public class Bankaccount{
         }
     }
 
-    public void geldOpnemen(int geldOpenmen){
-        if (saldo <= 0){
-            System.out.println("U kunt geen geld opnemen saldo te weinig");
-        }else if (geldOpenmen > saldo){
-            System.out.println("U kunt geen geld opnemen saldo te weinig");
-        }else{
+    public void geldOpnemen(int geldOpenmen) {
+        if (saldo > 0 && saldo >=geldOpenmen) {
             saldo = saldo - geldOpenmen;
+        } else {
+            throw new IllegalStateException("U kunt geen geld opnemen saldo te weinig");
         }
     }
 

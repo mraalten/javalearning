@@ -14,6 +14,7 @@ public class Person {
 
     public Person(String naam, LocalDate geboortDatum, String rekeningNummer, int startSaldo) {
         this.naam = naam;
+        this.geboorteDatum = geboortDatum;
         if (rekeningNummer != null){
             if (startSaldo >= MINIMUM_START_SALDO){
                 this.bankaccount = new Bankaccount(rekeningNummer, startSaldo);
