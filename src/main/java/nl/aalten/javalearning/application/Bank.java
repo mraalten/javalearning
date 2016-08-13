@@ -7,26 +7,25 @@ import java.util.List;
 
 public class Bank {
 
+    private int BankSpaarrekening;
     private List<Person> customers = new ArrayList<>();
 
     public void addCustomer(Person customer) {
         if (customer != null) {
             this.customers.add(customer);
             System.out.println("Rekening voor " + customer.getNaam() + " met saldo " + Util.formatAmount(customer.getSaldo()) + " geopend.");
-            printTotalSavings();
+            getErBijTotalAmountSavings(customer.getSaldo());
+            //printTotalSavings();
         }
     }
 
-    public int getTotalAmountSavings() {
-        Long totalAmountSavings = 0l;
-        for (Person person : customers) {
-           totalAmountSavings = totalAmountSavings + person.getSaldo();
-        }
-        return totalAmountSavings.intValue();
+    public void getErBijTotalAmountSavings(int totaalBankSpaarrekening) {
+        this.BankSpaarrekening = BankSpaarrekening + totaalBankSpaarrekening;
+        System.out.println("Totaal saldo van de bank zijn eigen spaarrekeningen is nu: " + BankSpaarrekening);
     }
-
-    private void printTotalSavings() {
-        System.out.println("Totaal saldo van spaarrekeningen is nu: " + Util.formatAmount(getTotalAmountSavings()));
+    public void getErAfTotalAmountSavings(int amountToWithdraw){
+        this.BankSpaarrekening = BankSpaarrekening - amountToWithdraw;
+        System.out.println("Totaal saldo van de bank zijn eigen spaarrekeningen is nu: " + BankSpaarrekening);
     }
 
     /**
@@ -38,12 +37,14 @@ public class Bank {
     public void deposit(Person person, int amountToDeposit) {
         person.getBankaccount().stortGeld(amountToDeposit);
         System.out.println(person.getNaam() + " wil " + Util.formatAmount(amountToDeposit) + " storten. Nieuw saldo na storting is : " + Util.formatAmount(person.getSaldo()));
-        printTotalSavings();
+        getErBijTotalAmountSavings(amountToDeposit);
+        //printTotalSavings();
     }
 
     public void withdraw(Person person, int amountToWithdraw) {
         person.getBankaccount().geldOpnemen(amountToWithdraw);
         System.out.println(person.getNaam() + " wil " + Util.formatAmount(amountToWithdraw) + " opnemen. Nieuw saldo na opname is : " + Util.formatAmount(person.getSaldo()));
-        printTotalSavings();
+        getErAfTotalAmountSavings(amountToWithdraw);
+        //printTotalSavings();
     }
 }
