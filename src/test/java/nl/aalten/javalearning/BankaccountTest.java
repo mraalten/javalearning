@@ -39,4 +39,17 @@ public class BankaccountTest {
         bankaccount.stortGeld(-10);
     }
 
+    @Test
+    public void it_schould_return_printBankStatmentGeldGestort_with_positief_number(){
+        Bankaccount bankaccount = new Bankaccount("223344", 8000);
+        bankaccount.stortGeld(400);
+    }
+
+
+    @Test
+    public void it_schould_return_printBankStatmentGeldOpnemen_with_positief_number(){
+        Bankaccount bankaccount = new Bankaccount("998877", 1250);
+        bankaccount.geldOpnemen(400);
+    }
+
 }

@@ -23,6 +23,7 @@ public class Bank {
         this.BankSpaarrekening = BankSpaarrekening + totaalBankSpaarrekening;
         System.out.println("Totaal saldo van de bank zijn eigen spaarrekeningen is nu: " + BankSpaarrekening);
     }
+
     public void getErAfTotalAmountSavings(int amountToWithdraw){
         this.BankSpaarrekening = BankSpaarrekening - amountToWithdraw;
         System.out.println("Totaal saldo van de bank zijn eigen spaarrekeningen is nu: " + BankSpaarrekening);
@@ -35,15 +36,15 @@ public class Bank {
      * @param amountToDeposit the amount to deposit, should be greater than zero
      */
     public void deposit(Person person, int amountToDeposit) {
-        person.getBankaccount().stortGeld(amountToDeposit);
         System.out.println(person.getNaam() + " wil " + Util.formatAmount(amountToDeposit) + " storten. Nieuw saldo na storting is : " + Util.formatAmount(person.getSaldo()));
+        person.getBankaccount().stortGeld(amountToDeposit);
         getErBijTotalAmountSavings(amountToDeposit);
         //printTotalSavings();
     }
 
     public void withdraw(Person person, int amountToWithdraw) {
-        person.getBankaccount().geldOpnemen(amountToWithdraw);
         System.out.println(person.getNaam() + " wil " + Util.formatAmount(amountToWithdraw) + " opnemen. Nieuw saldo na opname is : " + Util.formatAmount(person.getSaldo()));
+        person.getBankaccount().geldOpnemen(amountToWithdraw);
         getErAfTotalAmountSavings(amountToWithdraw);
         //printTotalSavings();
     }
