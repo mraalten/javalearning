@@ -14,7 +14,6 @@ public class BankApplication {
 
         Person richard = new Person("Richard", LocalDate.of(1970, 4, 9), "NLRABO0354223546", 150);
         rabobank.addCustomer(richard);
-        rabobank.withdraw(richard, 50);
         rabobank.deposit(richard, 175);
 
 
