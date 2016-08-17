@@ -1,16 +1,16 @@
-package nl.aalten.javalearning.application;
+package nl.hardwin.javalearning;
 
-import nl.aalten.javalearning.Person;
+import nl.hardwin.javalearning.application.Util;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Bank {
 
-    private List<Person> customers = new ArrayList<>();
+    private List<Persoon> customers = new ArrayList<>();
     private int totalAmountSavings;
 
-    public void addCustomer(Person customer) {
+    public void addCustomer(Persoon customer) {
         if (customer != null) {
             this.customers.add(customer);
             totalAmountSavings = totalAmountSavings + customer.getSaldo();
@@ -33,14 +33,14 @@ public class Bank {
      * @param person the person to add the money to it's account
      * @param amountToDeposit the amount to deposit, should be greater than zero
      */
-    public synchronized void deposit(Person person, int amountToDeposit) {
+    public synchronized void deposit(Persoon person, int amountToDeposit) {
         person.getBankaccount().stortGeld(amountToDeposit);
         totalAmountSavings = totalAmountSavings + amountToDeposit;
         System.out.println(person.getNaam() + " wil " + Util.formatAmount(amountToDeposit) + " storten. Nieuw saldo na storting is : " + Util.formatAmount(person.getSaldo()));
         printTotalSavings();
     }
 
-    public synchronized void withdraw(Person person, int amountToWithdraw) {
+    public synchronized void withdraw(Persoon person, int amountToWithdraw) {
         person.getBankaccount().geldOpnemen(amountToWithdraw);
         totalAmountSavings = totalAmountSavings - amountToWithdraw;
         System.out.println(person.getNaam() + " wil " + Util.formatAmount(amountToWithdraw) + " opnemen. Nieuw saldo na opname is : " + Util.formatAmount(person.getSaldo()));

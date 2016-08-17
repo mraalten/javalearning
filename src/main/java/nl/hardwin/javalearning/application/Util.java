@@ -1,4 +1,4 @@
-package nl.aalten.javalearning.application;
+package nl.hardwin.javalearning.application;
 
 public class Util {
 

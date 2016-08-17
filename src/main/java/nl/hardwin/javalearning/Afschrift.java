@@ -1,8 +1,8 @@
-package nl.aalten.javalearning.application;
+package nl.hardwin.javalearning;
 
 import java.time.LocalDate;
 
-public class Bankstatement{
+public class Afschrift {
 
     private LocalDate DatumTransActie = LocalDate.now();
     private String OmschrijvingTransactie;
@@ -12,7 +12,7 @@ public class Bankstatement{
     //private String geldStorting;
 
 
-    public Bankstatement(String bankRekeningNummer) {
+    public Afschrift(String bankRekeningNummer) {
         this.bankRekeningNummer = bankRekeningNummer;
     }
 

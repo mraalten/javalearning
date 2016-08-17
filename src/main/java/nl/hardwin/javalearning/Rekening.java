@@ -1,4 +1,4 @@
-package nl.aalten.javalearning;
+package nl.hardwin.javalearning;
 
 
 import java.time.LocalDate;
@@ -6,13 +6,13 @@ import java.time.LocalDate;
 /**
  * Created by edwincox on 7-8-2016.
  */
-public class Bankaccount{
+public class Rekening {
 
     private String rekeningnummer;
     private int saldo;
     private LocalDate DatumTransActie = LocalDate.now();
 
-    public Bankaccount(String rekeningnummer, int saldo) {
+    public Rekening(String rekeningnummer, int saldo) {
         this.rekeningnummer = rekeningnummer;
         this.saldo = saldo;
     }

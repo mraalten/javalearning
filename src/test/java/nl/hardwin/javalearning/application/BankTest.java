@@ -1,6 +1,7 @@
-package nl.aalten.javalearning.application;
+package nl.hardwin.javalearning.application;
 
-import nl.aalten.javalearning.Person;
+import nl.hardwin.javalearning.Bank;
+import nl.hardwin.javalearning.Persoon;
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -19,8 +20,8 @@ public class BankTest {
     public void it_should_return_the_correct_saldo_when_money_is_deposited_and_withdrawn() {
         Bank bank = new Bank();
 
-        Person person1 = new Person("Fred", LocalDate.of(1984, 2, 7), "NLRABO123", 500);
-        Person person2 = new Person("Wilma", LocalDate.of(1986, 5, 1), "NLINGB456", 200);
+        Persoon person1 = new Persoon("Fred", LocalDate.of(1984, 2, 7), "NLRABO123", 500);
+        Persoon person2 = new Persoon("Wilma", LocalDate.of(1986, 5, 1), "NLINGB456", 200);
         bank.addCustomer(person1);
         bank.addCustomer(person2);
         assertThat(bank.getTotalAmountSavings(), is(700));

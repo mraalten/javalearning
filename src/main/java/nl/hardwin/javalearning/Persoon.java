@@ -1,23 +1,23 @@
-package nl.aalten.javalearning;
+package nl.hardwin.javalearning;
 
 import java.time.LocalDate;
 
-public class Person {
+public class Persoon {
 
     public static final int MINIMUM_START_SALDO = 100;
 
     private String naam;
     private Adres correspondentieAdres;
-    private Bankaccount bankaccount;
+    private Rekening bankaccount;
     private LocalDate geboorteDatum;
-    private Person partner;
+    private Persoon partner;
 
-    public Person(String naam, LocalDate geboortDatum, String rekeningNummer, int startSaldo) {
+    public Persoon(String naam, LocalDate geboortDatum, String rekeningNummer, int startSaldo) {
         this.naam = naam;
         this.geboorteDatum = geboortDatum;
         if (rekeningNummer != null){
             if (startSaldo >= MINIMUM_START_SALDO){
-                this.bankaccount = new Bankaccount(rekeningNummer, startSaldo);
+                this.bankaccount = new Rekening(rekeningNummer, startSaldo);
             } else {
                 throw new IllegalStateException("Minder dan 100 euro gestort, min 100 storten");
             }
@@ -26,15 +26,15 @@ public class Person {
         }
     }
 
-    public Bankaccount getBankaccount() {
+    public Rekening getBankaccount() {
         return bankaccount;
     }
 
-    public Person getPartner() {
+    public Persoon getPartner() {
         return partner;
     }
 
-    public void setPartner(Person partner) {
+    public void setPartner(Persoon partner) {
         this.partner = partner;
     }
 

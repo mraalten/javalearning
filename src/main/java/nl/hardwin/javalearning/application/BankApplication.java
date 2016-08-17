@@ -1,8 +1,9 @@
-package nl.aalten.javalearning.application;
+package nl.hardwin.javalearning.application;
 
-import nl.aalten.javalearning.Adres;
-import nl.aalten.javalearning.Factuuradres;
-import nl.aalten.javalearning.Person;
+import nl.hardwin.javalearning.Adres;
+import nl.hardwin.javalearning.Bank;
+import nl.hardwin.javalearning.Factuuradres;
+import nl.hardwin.javalearning.Persoon;
 
 import java.time.LocalDate;
 
@@ -12,12 +13,12 @@ public class BankApplication {
 
         Bank rabobank = new Bank();
 
-        Person richard = new Person("Richard", LocalDate.of(1970, 4, 9), "NLRABO0354223546", 150);
+        Persoon richard = new Persoon("Richard", LocalDate.of(1970, 4, 9), "NLRABO0354223546", 150);
         rabobank.addCustomer(richard);
         rabobank.deposit(richard, 175);
 
 
-        Person edwin = new Person("Edwin", LocalDate.of(1984, 7, 2), "NLRABO0233456437", 200);
+        Persoon edwin = new Persoon("Edwin", LocalDate.of(1984, 7, 2), "NLRABO0233456437", 200);
         rabobank.addCustomer(edwin);
         rabobank.withdraw(edwin, 75);
     }
