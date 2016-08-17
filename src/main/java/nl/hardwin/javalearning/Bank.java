@@ -15,16 +15,11 @@ public class Bank {
             this.customers.add(customer);
             totalAmountSavings = totalAmountSavings + customer.getSaldo();
             System.out.println("Rekening voor " + customer.getNaam() + " met saldo " + Util.formatAmount(customer.getSaldo()) + " geopend.");
-            printTotalSavings();
         }
     }
 
     public int getTotalAmountSavings() {
         return totalAmountSavings;
-    }
-
-    private void printTotalSavings() {
-        System.out.println("Totaal saldo van spaarrekeningen is nu: " + Util.formatAmount(getTotalAmountSavings()));
     }
 
     /**
@@ -37,13 +32,11 @@ public class Bank {
         person.getBankaccount().stortGeld(amountToDeposit);
         totalAmountSavings = totalAmountSavings + amountToDeposit;
         System.out.println(person.getNaam() + " wil " + Util.formatAmount(amountToDeposit) + " storten. Nieuw saldo na storting is : " + Util.formatAmount(person.getSaldo()));
-        printTotalSavings();
     }
 
     public synchronized void withdraw(Persoon person, int amountToWithdraw) {
         person.getBankaccount().geldOpnemen(amountToWithdraw);
         totalAmountSavings = totalAmountSavings - amountToWithdraw;
         System.out.println(person.getNaam() + " wil " + Util.formatAmount(amountToWithdraw) + " opnemen. Nieuw saldo na opname is : " + Util.formatAmount(person.getSaldo()));
-        printTotalSavings();
     }
 }
