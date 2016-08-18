@@ -1,7 +1,7 @@
 package nl.hardwin.javalearning.application;
 
-import nl.hardwin.javalearning.Bank;
-import nl.hardwin.javalearning.Persoon;
+import nl.hardwin.javalearning.domain.Bank;
+import nl.hardwin.javalearning.domain.Persoon;
 import org.junit.Test;
 
 import java.time.LocalDate;

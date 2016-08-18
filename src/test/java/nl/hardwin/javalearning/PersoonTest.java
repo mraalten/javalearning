@@ -1,5 +1,6 @@
 package nl.hardwin.javalearning;
 
+import nl.hardwin.javalearning.domain.Persoon;
 import org.junit.Test;
 
 import java.time.LocalDate;

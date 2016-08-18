@@ -1,7 +1,8 @@
-package nl.hardwin.javalearning;
+package nl.hardwin.javalearning.domain;
 
 
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by edwincox on 7-8-2016.
@@ -10,7 +11,7 @@ public class Rekening {
 
     private String rekeningnummer;
     private int saldo;
-    private LocalDate DatumTransActie = LocalDate.now();
+    private List<Transactie> transacties = new ArrayList<>();
 
     public Rekening(String rekeningnummer, int saldo) {
         this.rekeningnummer = rekeningnummer;

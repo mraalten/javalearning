@@ -1,5 +1,6 @@
 package nl.hardwin.javalearning;
 
+import nl.hardwin.javalearning.domain.Rekening;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;

@@ -1,4 +1,4 @@
-package nl.hardwin.javalearning;
+package nl.hardwin.javalearning.domain;
 
 import java.time.LocalDate;
 
@@ -8,6 +8,8 @@ public class Persoon {
 
     private String naam;
     private Adres correspondentieAdres;
+    private Factuuradres factuuradres;
+
     private Rekening bankaccount;
     private LocalDate geboorteDatum;
     private Persoon partner;
@@ -83,5 +85,9 @@ public class Persoon {
 
     public int getSaldo() {
         return bankaccount.getSaldo();
+    }
+
+    public void stortGeld(int amountToDeposit) {
+        bankaccount.stortGeld(amountToDeposit);
     }
 }

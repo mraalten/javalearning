@@ -1,9 +1,9 @@
 package nl.hardwin.javalearning.application;
 
-import nl.hardwin.javalearning.Adres;
-import nl.hardwin.javalearning.Bank;
-import nl.hardwin.javalearning.Factuuradres;
-import nl.hardwin.javalearning.Persoon;
+import nl.hardwin.javalearning.domain.Adres;
+import nl.hardwin.javalearning.domain.Bank;
+import nl.hardwin.javalearning.domain.Factuuradres;
+import nl.hardwin.javalearning.domain.Persoon;
 
 import java.time.LocalDate;
 

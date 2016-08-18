@@ -1,4 +1,4 @@
-package nl.hardwin.javalearning;
+package nl.hardwin.javalearning.domain;
 
 public class Adres {
 
