@@ -10,4 +10,27 @@ public class Transactie {
     private BigDecimal bedrag;
     private OpAfnameType opAfname;
 
+    public Transactie(String omschrijving, BigDecimal bedrag, OpAfnameType opAfname) {
+        this.datum = LocalDate.now();
+        this.omschrijving = omschrijving;
+        this.bedrag = bedrag;
+        this.opAfname = opAfname;
+        System.out.println("BankAfschrift: " + " " +  omschrijving + " " +   bedrag + " " +  opAfname);
+    }
+
+    public LocalDate getDatum() {
+        return datum;
+    }
+
+    public String getOmschrijving() {
+        return omschrijving;
+    }
+
+    public BigDecimal getBedrag() {
+        return bedrag;
+    }
+
+    public OpAfnameType getOpAfname() {
+        return opAfname;
+    }
 }

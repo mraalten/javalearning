@@ -1,6 +1,7 @@
 package nl.hardwin.javalearning.domain;
 
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +19,6 @@ public class Rekening {
         this.saldo = saldo;
     }
 
-    public String getRekeningNummer(){
-        return rekeningnummer;
-    }
 
     @Override
     public String toString() {
@@ -38,6 +36,7 @@ public class Rekening {
     public void stortGeld(int stortGeld){
         if (stortGeld >= 0) {
             saldo = stortGeld + saldo;
+            new Transactie("Storting", new BigDecimal(stortGeld), OpAfnameType.STORTEN);
         } else {
             throw new IllegalArgumentException("U kunt geen negatief bedrag storten");
         }
@@ -46,9 +45,12 @@ public class Rekening {
     public void geldOpnemen(int geldOpenmen) {
         if (saldo > 0 && saldo >= geldOpenmen) {
             saldo = saldo - geldOpenmen;
+            new Transactie("Opnamen", new BigDecimal(geldOpenmen), OpAfnameType.OPNEMEN);
         } else {
             throw new IllegalStateException("U kunt geen geld opnemen saldo te weinig");
         }
     }
 
+
 }
+
