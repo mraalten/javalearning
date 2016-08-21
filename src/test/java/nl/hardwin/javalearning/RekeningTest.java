@@ -74,4 +74,16 @@ public class RekeningTest {
         assertThat(bankaccount.getTransacties().size(), is(4));
     }
 
+    @Test
+    public void it_should_contain_a_transaction_of_type_opnemen_when_money_is_withdrawn(){
+        Rekening bankaccount = new Rekening("998877", 1250);
+        bankaccount.geldOpnemen(100);
+
+        assertThat(bankaccount.getTransacties().size(), is(1));
+        Transactie transactie = bankaccount.getTransacties().get(0);
+        assertThat(transactie.getOpAfname(), is(OpAfnameType.OPNEMEN));
+
+    }
+
+
 }
