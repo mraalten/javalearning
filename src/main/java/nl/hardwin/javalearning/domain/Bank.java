@@ -39,4 +39,8 @@ public class Bank {
         totalAmountSavings = totalAmountSavings - amountToWithdraw;
         System.out.println(person.getNaam() + " wil " + Util.formatAmount(amountToWithdraw) + " opnemen. Nieuw saldo na opname is : " + Util.formatAmount(person.getSaldo()));
     }
+
+
+
+
 }
