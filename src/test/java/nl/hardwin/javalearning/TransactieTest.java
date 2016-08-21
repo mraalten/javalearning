@@ -5,17 +5,23 @@ import nl.hardwin.javalearning.domain.Transactie;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class TransactieTest {
 
-    @Test(expected = IllegalStateException.class)
-    public void it_should_return_(){
-       Transactie transactie = new Transactie("test", new BigDecimal(0), OpAfnameType.valueOf("STORTEN"));
-       transactie.addTransactie("test", new BigDecimal(0), OpAfnameType.valueOf("STORTEN"));
-        transactie.printTransactie();
-
+    @Test
+    public void it_should_have_the_correct_values_when_the_object_is_created() {
+        BigDecimal bedrag = new BigDecimal(150.75);
+        Transactie transactie = new Transactie("unit-test", bedrag, OpAfnameType.STORTEN);
+        assertThat(transactie.getDatum(), is(LocalDate.now()));
+        assertThat(transactie.getOmschrijving(), is("unit-test"));
+        assertThat(transactie.getBedrag(), is(bedrag));
+        assertThat(transactie.getOpAfname(), is(OpAfnameType.STORTEN));
     }
+
 
 
 

@@ -5,9 +5,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by edwincox on 7-8-2016.
- */
 public class Rekening {
 
     private String rekeningnummer;
@@ -19,6 +16,9 @@ public class Rekening {
         this.saldo = saldo;
     }
 
+    public List<Transactie> getTransacties() {
+        return transacties;
+    }
 
     @Override
     public String toString() {
@@ -36,7 +36,8 @@ public class Rekening {
     public void stortGeld(int stortGeld){
         if (stortGeld >= 0) {
             saldo = stortGeld + saldo;
-            new Transactie("Storting", new BigDecimal(stortGeld), OpAfnameType.STORTEN);
+            Transactie transactie = new Transactie("Storting", new BigDecimal(stortGeld), OpAfnameType.STORTEN);
+            transacties.add(transactie);
         } else {
             throw new IllegalArgumentException("U kunt geen negatief bedrag storten");
         }
@@ -45,7 +46,8 @@ public class Rekening {
     public void geldOpnemen(int geldOpenmen) {
         if (saldo > 0 && saldo >= geldOpenmen) {
             saldo = saldo - geldOpenmen;
-            new Transactie("Opnamen", new BigDecimal(geldOpenmen), OpAfnameType.OPNEMEN);
+            Transactie transactie = new Transactie("Opnamen", new BigDecimal(geldOpenmen), OpAfnameType.OPNEMEN);
+            transacties.add(transactie);
         } else {
             throw new IllegalStateException("U kunt geen geld opnemen saldo te weinig");
         }

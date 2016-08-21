@@ -1,6 +1,8 @@
 package nl.hardwin.javalearning;
 
+import nl.hardwin.javalearning.domain.OpAfnameType;
 import nl.hardwin.javalearning.domain.Rekening;
+import nl.hardwin.javalearning.domain.Transactie;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -41,16 +43,35 @@ public class RekeningTest {
     }
 
     @Test
-    public void it_schould_return_printBankStatmentGeldGestort_with_positief_number(){
+    public void it_should_return_printBankStatmentGeldGestort_with_positief_number(){
         Rekening bankaccount = new Rekening("223344", 8000);
         bankaccount.stortGeld(400);
     }
 
-
     @Test
-    public void it_schould_return_printBankStatmentGeldOpnemen_with_positief_number(){
+    public void it_should_return_printBankStatmentGeldOpnemen_with_positief_number(){
         Rekening bankaccount = new Rekening("998877", 1250);
         bankaccount.geldOpnemen(400);
+    }
+
+    @Test
+    public void it_should_contain_a_transaction_of_type_storten_when_money_is_deposited() {
+        Rekening bankaccount = new Rekening("998877", 1250);
+        bankaccount.stortGeld(100);
+
+        assertThat(bankaccount.getTransacties().size(), is(1));
+        Transactie transactie = bankaccount.getTransacties().get(0);
+        assertThat(transactie.getOpAfname(), is(OpAfnameType.STORTEN));
+    }
+
+    @Test
+    public void it_should_contain_the_right_number_of_transactions_when_money_is_deposited_or_withdrawn() {
+        Rekening bankaccount = new Rekening("998877", 1250);
+        bankaccount.stortGeld(100);
+        bankaccount.geldOpnemen(50);
+        bankaccount.geldOpnemen(25);
+        bankaccount.stortGeld(30);
+        assertThat(bankaccount.getTransacties().size(), is(4));
     }
 
 }
