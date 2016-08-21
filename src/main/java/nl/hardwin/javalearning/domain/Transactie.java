@@ -15,7 +15,6 @@ public class Transactie {
         this.omschrijving = omschrijving;
         this.bedrag = bedrag;
         this.opAfname = opAfname;
-        System.out.println("BankAfschrift: " + " " +  omschrijving + " " +   bedrag + " " +  opAfname);
     }
 
     public LocalDate getDatum() {
