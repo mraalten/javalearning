@@ -16,7 +16,7 @@ public class Rekening {
 
     public Rekening(String rekeningnummer, int saldo) {
         if (saldo < MINIMUM_START_SALDO){
-            throw new IllegalStateException("Minder dan 100 euro gestort, min 100 storten");
+            throw new IllegalStateException("Het minumum te storten bedrag is " + MINIMUM_START_SALDO + " euro");
         }
         this.rekeningnummer = rekeningnummer;
         this.saldo = saldo;
