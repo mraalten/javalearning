@@ -3,8 +3,10 @@ package nl.hardwin.javalearning.domain;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class Bank {
+    private static final String BANK_IDENTIFICATION = "NLHDWN0";
 
     private Map<String, Rekening> rekeningen = new HashMap<>();
     private int totalAmountSavings;
@@ -16,6 +18,16 @@ public class Bank {
         rekening.addCustomer(persoon);
         totalAmountSavings = totalAmountSavings + saldo;
         return rekeningNummer;
+    }
+
+    private String generateRekeningNummer() {
+        Random randomGenerator = new Random();
+        StringBuilder sb = new StringBuilder();
+        for (int idx = 1; idx <= 9; ++idx){
+            int randomInt = randomGenerator.nextInt(10);
+            sb.append(randomInt);
+        }
+        return BANK_IDENTIFICATION + sb.toString();
     }
 
     public int getTotalAmountSavings() {

@@ -3,37 +3,15 @@ package nl.hardwin.javalearning.domain;
 import java.time.LocalDate;
 
 public class Persoon {
-
-
-
     private String naam;
     private Adres correspondentieAdres;
     private Factuuradres factuuradres;
 
-
     private LocalDate geboorteDatum;
-    private Persoon partner;
 
     public Persoon(String naam, LocalDate geboortDatum) {
         this.naam = naam;
         this.geboorteDatum = geboortDatum;
-    }
-
-    public Persoon getPartner() {
-        return partner;
-    }
-
-    public void setPartner(Persoon partner) {
-        this.partner = partner;
-    }
-
-
-    public LocalDate getGeboorteDatum() {
-        return geboorteDatum;
-    }
-
-    public void setGeboorteDatum(LocalDate geboorteDatum) {
-        this.geboorteDatum = geboorteDatum;
     }
 
     @Override
@@ -41,18 +19,14 @@ public class Persoon {
         return "Naam: " + naam + ", geb.datum: " + geboorteDatum;
     }
 
+    public void setGeboorteDatum(LocalDate geboorteDatum) {
+        this.geboorteDatum = geboorteDatum;
+    }
 
     public String getNaam() {
         return this.naam;
     }
 
-    public Adres getCorrespondentieAdres(){
-        return correspondentieAdres;
-    }
-
-    public Adres setCorrespondentieAdres(Adres correspondentieAdres){
-        return this.correspondentieAdres = correspondentieAdres;
-    }
 
     /**
      * This method returns an age based on

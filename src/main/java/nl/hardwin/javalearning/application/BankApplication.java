@@ -1,10 +1,10 @@
 package nl.hardwin.javalearning.application;
 
+import java.time.LocalDate;
+
 import nl.hardwin.javalearning.domain.Adres;
 import nl.hardwin.javalearning.domain.Bank;
 import nl.hardwin.javalearning.domain.Factuuradres;
-
-import java.time.LocalDate;
 
 public class BankApplication {
     private static Bank rabobank = new Bank();
