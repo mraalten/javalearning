@@ -17,6 +17,7 @@ public class Transactie {
         this.opAfname = opAfname;
     }
 
+
     public LocalDate getDatum() {
         return datum;
     }

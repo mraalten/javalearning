@@ -26,6 +26,7 @@ public class Rekening {
         return transacties;
     }
 
+
     @Override
     public String toString() {
         return "Bankaccount{" +

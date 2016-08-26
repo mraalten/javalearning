@@ -11,7 +11,8 @@ public class Bank {
     private Map<String, Rekening> rekeningen = new HashMap<>();
     private int totalAmountSavings;
 
-    public String openRekening(String naam, LocalDate geboorteDatum, int saldo, String rekeningNummer) {
+    public String openRekening(String naam, LocalDate geboorteDatum, int saldo) {
+        String rekeningNummer = generateRekeningNummer();
         Rekening rekening = new Rekening(rekeningNummer, saldo);
         Persoon persoon = new Persoon(naam, geboorteDatum);
         this.rekeningen.put(rekeningNummer, rekening);
