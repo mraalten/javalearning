@@ -7,11 +7,17 @@ import java.util.List;
 
 public class Rekening {
 
+    public static final int MINIMUM_START_SALDO = 100;
+
+    private Persoon persoon;
     private String rekeningnummer;
     private int saldo;
     private List<Transactie> transacties = new ArrayList<>();
 
     public Rekening(String rekeningnummer, int saldo) {
+        if (saldo < MINIMUM_START_SALDO){
+            throw new IllegalStateException("Minder dan 100 euro gestort, min 100 storten");
+        }
         this.rekeningnummer = rekeningnummer;
         this.saldo = saldo;
     }
@@ -54,5 +60,8 @@ public class Rekening {
     }
 
 
+    public void addCustomer(Persoon persoon) {
+        this.persoon = persoon;
+    }
 }
 

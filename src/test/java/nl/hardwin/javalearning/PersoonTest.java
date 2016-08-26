@@ -12,25 +12,6 @@ public class PersoonTest {
 
     private static final LocalDate VALID_BIRTHDATE = LocalDate.of(1984, 2, 7);
 
-    @Test(expected = IllegalStateException.class)
-    public void it_should_throw_an_error_when_saldo_is_zero(){
-        Persoon person = new Persoon("Fred", VALID_BIRTHDATE, "4545", 0);
-    }
-
-    @Test(expected = IllegalStateException.class)
-    public void it_should_throw_an_error_when_saldo_is_below_zero(){
-        Persoon person = new Persoon("Fred", VALID_BIRTHDATE, "4545", -9);
-    }
-
-    @Test(expected = IllegalStateException.class)
-    public void it_should_throw_an_error_when_there_is_no_accountnumber(){
-        Persoon person = new Persoon("Fred", VALID_BIRTHDATE, null, 2);
-    }
-
-    @Test
-    public void it_should_create_a_person_object_when_all_values_are_ok() {
-        Persoon person = new Persoon("Fred", VALID_BIRTHDATE, "NLRABO0354236564", 200);
-    }
 
     @Override
     public boolean equals(Object obj) {
@@ -46,7 +27,7 @@ public class PersoonTest {
     }
 
     private Persoon getValidPersonObject() {
-        return new Persoon("edwin", LocalDate.now(), "12345", 100);
+        return new Persoon("edwin", LocalDate.now());
     }
 
     @Test

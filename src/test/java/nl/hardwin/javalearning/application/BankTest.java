@@ -1,10 +1,10 @@
 package nl.hardwin.javalearning.application;
 
 import nl.hardwin.javalearning.domain.Bank;
-import nl.hardwin.javalearning.domain.Persoon;
 import org.junit.Test;
 
 import java.time.LocalDate;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -19,16 +19,12 @@ public class BankTest {
     @Test
     public void it_should_return_the_correct_saldo_when_money_is_deposited_and_withdrawn() {
         Bank bank = new Bank();
+        bank.openRekening("Edwin Cox", LocalDate.of(1984, 06, 06), 1200, "NLRABO123");
+        bank.deposit("NLRABO123", 150);
+        assertThat(bank.getTotalAmountSavings(), is(1350));
 
-        Persoon person1 = new Persoon("Fred", LocalDate.of(1984, 2, 7), "NLRABO123", 500);
-        Persoon person2 = new Persoon("Wilma", LocalDate.of(1986, 5, 1), "NLINGB456", 200);
-        bank.addCustomer(person1);
-        bank.addCustomer(person2);
-        assertThat(bank.getTotalAmountSavings(), is(700));
-
-        bank.deposit(person1, 150);
-        bank.withdraw(person2, 100);
-        assertThat(bank.getTotalAmountSavings(), is(750));
-
+        bank.openRekening("Richard Aalten", LocalDate.of(1970, 12, 31), 1100, "NLINGB456");
+        bank.withdraw("NLINGB456", 100);
+        assertThat(bank.getTotalAmountSavings(), is(2350));
     }
 }

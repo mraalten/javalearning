@@ -86,4 +86,14 @@ public class RekeningTest {
     }
 
 
+    @Test(expected = IllegalStateException.class)
+    public void it_should_throw_an_error_when_saldo_is_zero(){
+        Rekening rekening = new Rekening("4545", 0);
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void it_should_throw_an_error_when_saldo_is_below_zero(){
+        Rekening rekening = new Rekening("4545", -9);
+    }
+
 }

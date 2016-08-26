@@ -3,7 +3,6 @@ package nl.hardwin.javalearning.application;
 import nl.hardwin.javalearning.domain.Adres;
 import nl.hardwin.javalearning.domain.Bank;
 import nl.hardwin.javalearning.domain.Factuuradres;
-import nl.hardwin.javalearning.domain.Persoon;
 
 import java.time.LocalDate;
 
@@ -12,13 +11,11 @@ public class BankApplication {
 
     public static void main(String[] args) {
 
-        Persoon richard = new Persoon("Richard", LocalDate.of(1970, 4, 9), "NLRABO0354223546", 150);
-        rabobank.addCustomer(richard);
-        rabobank.deposit(richard, 175);
+        String rekeningNrRichard = rabobank.openRekening("Richard", LocalDate.of(1970, 4, 9), 150, "123");
+        rabobank.deposit(rekeningNrRichard, 175);
 
-        Persoon edwin = new Persoon("Edwin", LocalDate.of(1984, 7, 2), "NLRABO0233456437", 200);
-        rabobank.addCustomer(edwin);
-        rabobank.withdraw(edwin, 75);
+        String rekeningNrEdwin = rabobank.openRekening("Edwin", LocalDate.of(1984, 7, 2), 150, "456");
+        rabobank.withdraw(rekeningNrEdwin, 75);
         printTotalSavings();
 
     }

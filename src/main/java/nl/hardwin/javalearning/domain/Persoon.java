@@ -4,32 +4,19 @@ import java.time.LocalDate;
 
 public class Persoon {
 
-    public static final int MINIMUM_START_SALDO = 100;
+
 
     private String naam;
     private Adres correspondentieAdres;
     private Factuuradres factuuradres;
 
-    private Rekening bankaccount;
+
     private LocalDate geboorteDatum;
     private Persoon partner;
 
-    public Persoon(String naam, LocalDate geboortDatum, String rekeningNummer, int startSaldo) {
+    public Persoon(String naam, LocalDate geboortDatum) {
         this.naam = naam;
         this.geboorteDatum = geboortDatum;
-        if (rekeningNummer != null){
-            if (startSaldo >= MINIMUM_START_SALDO){
-                this.bankaccount = new Rekening(rekeningNummer, startSaldo);
-            } else {
-                throw new IllegalStateException("Minder dan 100 euro gestort, min 100 storten");
-            }
-        } else {
-            throw new IllegalStateException("Rekeningnummer is verplicht.");
-        }
-    }
-
-    public Rekening getBankaccount() {
-        return bankaccount;
     }
 
     public Persoon getPartner() {
@@ -81,13 +68,5 @@ public class Persoon {
             return age - 1;
         }
         return age;
-    }
-
-    public int getSaldo() {
-        return bankaccount.getSaldo();
-    }
-
-    public void stortGeld(int amountToDeposit) {
-        bankaccount.stortGeld(amountToDeposit);
     }
 }
