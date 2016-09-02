@@ -6,12 +6,13 @@ import java.util.Map;
 import java.util.Random;
 
 public class Bank {
-    private static final String BANK_IDENTIFICATION = "NLHDWN0";
 
+    private static final String BANK_IDENTIFICATION = "NLHDWN0";
     private Map<String, Rekening> rekeningen = new HashMap<>();
     private Map<String, Persoon> personen = new HashMap<>();
     private Rekening rekening;
     private int totalAmountSavings;
+    private String findperson;
 
     public String openRekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo) {
         Persoon persoon = personen.get(bsnNummer);
@@ -27,6 +28,9 @@ public class Bank {
         return rekeningNummer;
     }
 
+
+
+
     private String generateRekeningNummer() {
         Random randomGenerator = new Random();
         StringBuilder sb = new StringBuilder();
@@ -39,6 +43,11 @@ public class Bank {
 
     public int getTotalAmountSavings() {
         return totalAmountSavings;
+    }
+
+    public void findperson(String bsnNummer){
+        Persoon persoon = personen.get(bsnNummer);
+        return persoon;
     }
 
     /**
@@ -71,4 +80,7 @@ public class Bank {
         Rekening rekening = getRekening(rekeningNummer);
         rekening.printTransactie();
     }
+
+
+
 }

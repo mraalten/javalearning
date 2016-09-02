@@ -1,6 +1,8 @@
 package nl.hardwin.javalearning.application;
 
 import nl.hardwin.javalearning.domain.Bank;
+import nl.hardwin.javalearning.domain.Persoon;
+
 import org.junit.Test;
 
 import java.time.LocalDate;
@@ -9,6 +11,20 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class BankTest {
+   
+
+
+    @Test
+    public void it_should_create_a_new_person_when_it_is_null(){
+        Bank bank = new Bank();
+        bank.openRekening("BSNtest", "Edwin", LocalDate.of(1984, 06, 06), 1200);
+        Persoon persoon = bank.findperson("BSNtest");
+
+        assertThat(bank.findperson("BSNtest").getNaam(), is("Edwin"));
+    }
+
+
+
 
     @Test
     public void it_should_return_zero_when_no_accounts_are_present() {
