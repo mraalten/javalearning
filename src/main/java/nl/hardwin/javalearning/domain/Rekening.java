@@ -13,6 +13,7 @@ public class Rekening {
     private String rekeningnummer;
     private int saldo;
     private List<Transactie> transacties = new ArrayList<>();
+    private Transactie transactie;
 
     public Rekening(String rekeningnummer, int saldo) {
         if (saldo < MINIMUM_START_SALDO){
@@ -39,7 +40,6 @@ public class Rekening {
         return saldo;
     }
 
-
     public void stortGeld(int stortGeld){
         if (stortGeld >= 0) {
             saldo = stortGeld + saldo;
@@ -60,9 +60,21 @@ public class Rekening {
         }
     }
 
-
     public void addCustomer(Persoon persoon) {
         this.persoon = persoon;
     }
+
+    public void printTransactie(){
+        System.out.println("Afschrijft van: " + persoon.getNaam());
+        System.out.println("Betreft rekeningnummer: " + rekeningnummer);
+    for (Transactie transactie:transacties){
+        System.out.println(transactie.getDatum()
+                + " " + transactie.getOmschrijving()
+                + " " + transactie.getBedrag()
+                + " " + transactie.getOpAfname());
+    }
+
+    }
+
 }
 

@@ -1,7 +1,7 @@
 package nl.hardwin.javalearning.domain;
 
 
-public class FactuurAdres extends Adres {
+public class Factuuradres extends Adres {
 
     private String Postbus;
 

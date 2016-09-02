@@ -8,7 +8,7 @@ public class Persoon {
     private String bsnNummer;
     private String naam;
     private Adres correspondentieAdres;
-    private FactuurAdres factuuradres;
+    private Factuuradres factuuradres;
     private List<Rekening> rekeningen = new ArrayList<>();
     private LocalDate geboorteDatum;
 

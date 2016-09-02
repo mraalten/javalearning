@@ -33,4 +33,8 @@ public class Transactie {
     public OpAfnameType getOpAfname() {
         return opAfname;
     }
+
+
+
+
 }

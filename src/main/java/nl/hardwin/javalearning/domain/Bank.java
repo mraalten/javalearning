@@ -10,6 +10,7 @@ public class Bank {
 
     private Map<String, Rekening> rekeningen = new HashMap<>();
     private Map<String, Persoon> personen = new HashMap<>();
+    private Rekening rekening;
     private int totalAmountSavings;
 
     public String openRekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo) {
@@ -64,5 +65,10 @@ public class Bank {
         Rekening rekening = getRekening(rekeningNummer);
         rekening.geldOpnemen(amountToWithdraw);
         totalAmountSavings = totalAmountSavings - amountToWithdraw;
+    }
+
+    public synchronized void printOverzichtTransacties(String rekeningNummer){
+        Rekening rekening = getRekening(rekeningNummer);
+        rekening.printTransactie();
     }
 }
