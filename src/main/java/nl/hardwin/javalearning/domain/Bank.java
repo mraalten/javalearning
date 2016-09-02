@@ -9,12 +9,17 @@ public class Bank {
     private static final String BANK_IDENTIFICATION = "NLHDWN0";
 
     private Map<String, Rekening> rekeningen = new HashMap<>();
+    private Map<String, Persoon> personen = new HashMap<>();
     private int totalAmountSavings;
 
-    public String openRekening(String naam, LocalDate geboorteDatum, int saldo) {
+    public String openRekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo) {
+        Persoon persoon = personen.get(bsnNummer);
+        if (persoon == null) {
+            persoon = new Persoon(naam, geboorteDatum);
+            this.personen.put(bsnNummer, persoon);
+        }
         String rekeningNummer = generateRekeningNummer();
         Rekening rekening = new Rekening(rekeningNummer, saldo);
-        Persoon persoon = new Persoon(naam, geboorteDatum);
         this.rekeningen.put(rekeningNummer, rekening);
         rekening.addCustomer(persoon);
         totalAmountSavings = totalAmountSavings + saldo;

@@ -2,7 +2,7 @@ package nl.hardwin.javalearning.application;
 
 import nl.hardwin.javalearning.domain.Adres;
 import nl.hardwin.javalearning.domain.Bank;
-import nl.hardwin.javalearning.domain.Factuuradres;
+import nl.hardwin.javalearning.domain.FactuurAdres;
 
 import java.time.LocalDate;
 
@@ -11,7 +11,8 @@ public class BankApplication {
 
     public static void main(String[] args) {
 
-        String rekeningNrRichard = rabobank.openRekening("Richard", LocalDate.of(1970, 4, 9), 150);
+
+        String rekeningNrRichard = rabobank.openRekening("BSN1212", "Richard", LocalDate.of(1970, 4, 9), 150);
         rabobank.deposit(rekeningNrRichard, 175);
 
         String rekeningNrEdwin = rabobank.openRekening("Edwin", LocalDate.of(1984, 7, 2), 150);
@@ -34,8 +35,8 @@ public class BankApplication {
         return adres;
     }
 
-    private static Factuuradres correspondentieCreate(String straatnaam, String huisnummer, String huisnummertoevoeging, String postcode, String postbus, String woonplaats){
-        Factuuradres correspondentieAdres = new Factuuradres();
+    private static FactuurAdres correspondentieCreate(String straatnaam, String huisnummer, String huisnummertoevoeging, String postcode, String postbus, String woonplaats){
+        FactuurAdres correspondentieAdres = new FactuurAdres();
         correspondentieAdres.setStraatnaam(straatnaam);
         correspondentieAdres.setHuisnummer(huisnummer);
         correspondentieAdres.setHuisnummerToevoeging(huisnummertoevoeging);

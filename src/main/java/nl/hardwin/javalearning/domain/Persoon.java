@@ -1,12 +1,15 @@
 package nl.hardwin.javalearning.domain;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Persoon {
+    private String bsnNummer;
     private String naam;
     private Adres correspondentieAdres;
-    private Factuuradres factuuradres;
-
+    private FactuurAdres factuuradres;
+    private List<Rekening> rekeningen = new ArrayList<>();
     private LocalDate geboorteDatum;
 
     public Persoon(String naam, LocalDate geboortDatum) {
