@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Persoon {
-    private String bsnNummer;
     private String naam;
     private Adres correspondentieAdres;
     private Factuuradres factuuradres;

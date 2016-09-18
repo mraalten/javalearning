@@ -28,9 +28,6 @@ public class Bank {
         return rekeningNummer;
     }
 
-
-
-
     private String generateRekeningNummer() {
         Random randomGenerator = new Random();
         StringBuilder sb = new StringBuilder();
@@ -45,9 +42,10 @@ public class Bank {
         return totalAmountSavings;
     }
 
-    public void findperson(String bsnNummer){
-        Persoon persoon = personen.get(bsnNummer);
-        return persoon;
+    public Persoon findperson(String bsnNummer){
+        Persoon naam = personen.get(bsnNummer);
+        System.out.println(naam);
+        return naam;
     }
 
     /**
