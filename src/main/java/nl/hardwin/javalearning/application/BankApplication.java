@@ -1,8 +1,6 @@
 package nl.hardwin.javalearning.application;
 
-import nl.hardwin.javalearning.domain.Adres;
 import nl.hardwin.javalearning.domain.Bank;
-import nl.hardwin.javalearning.domain.Factuuradres;
 
 import java.time.LocalDate;
 
@@ -11,7 +9,6 @@ public class BankApplication {
 
     public static void main(String[] args) {
 
-
         String rekeningNrRichard = rabobank.openRekening("BSN1212", "Richard", LocalDate.of(1970, 4, 9), 150);
         rabobank.deposit(rekeningNrRichard, 175);
 
@@ -19,33 +16,17 @@ public class BankApplication {
         rabobank.withdraw(rekeningNrEdwin, 75);
         rabobank.deposit(rekeningNrEdwin, 2300);
         rabobank.printOverzichtTransacties(rekeningNrEdwin);
-        printTotalSavings();
+        rabobank.watIsMijnSaldo(rekeningNrEdwin);
 
+        printTotalSavings();
+        rabobank.transfermoney(rekeningNrEdwin, rekeningNrRichard, 25);
+        rabobank.printOverzichtTransacties(rekeningNrEdwin);
+
+        printTotalSavings();
     }
 
     private static void printTotalSavings() {
-        System.out.println("Totaal saldo van spaarrekeningen is nu: " + Util.formatAmount(rabobank.getTotalAmountSavings()));
+        System.out.println("Totaal saldo van spaarrekeningen op de Rabobank is nu: " + Util.formatAmount(rabobank.getTotalAmountSavings()));
     }
 
-    private static Adres adresCreate(String straatnaam, String Huisnummer, String HuisnummerToevoeging, String postcode, String Woonplaats){
-        Adres adres  = new Adres();
-        adres.setStraatnaam(straatnaam);
-        adres.setHuisnummer(Huisnummer);
-        adres.setHuisnummerToevoeging(HuisnummerToevoeging);
-        adres.setPostcode(postcode);
-        adres.setWoonplaats(Woonplaats);
-        return adres;
-    }
-
-    private static Factuuradres correspondentieCreate(String straatnaam, String huisnummer, String huisnummertoevoeging, String postcode, String postbus, String woonplaats){
-        Factuuradres correspondentieAdres = new Factuuradres();
-        correspondentieAdres.setStraatnaam(straatnaam);
-        correspondentieAdres.setHuisnummer(huisnummer);
-        correspondentieAdres.setHuisnummerToevoeging(huisnummertoevoeging);
-        correspondentieAdres.setPostcode(postcode);
-        correspondentieAdres.setPostbus(postbus);
-        correspondentieAdres.setWoonplaats(woonplaats);
-        return correspondentieAdres;
-
-    }
 }

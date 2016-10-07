@@ -1,6 +1,7 @@
 package nl.hardwin.javalearning.application;
 
 import nl.hardwin.javalearning.domain.Bank;
+
 import nl.hardwin.javalearning.domain.Persoon;
 import org.junit.Test;
 
@@ -22,9 +23,6 @@ public class BankTest {
     //   assertThat(persoon.getLeeftijd(), is("32"));
    }
 
-
-
-
     @Test
     public void it_should_return_zero_when_no_accounts_are_present() {
         Bank bank = new Bank();
@@ -41,5 +39,17 @@ public class BankTest {
         String rekeningNrRichard = bank.openRekening("BSNtest", "Richard Aalten", LocalDate.of(1970, 12, 31), 1100);
         bank.withdraw(rekeningNrRichard, 100);
         assertThat(bank.getTotalAmountSavings(), is(2350));
+    }
+
+    @Test
+    public void it_should_return_saldo_from_account_with_change_amout(){
+        Bank bank = new Bank();
+        String rekeningNrEdwin = bank.openRekening("BSNtest", "Edwin Cox", LocalDate.of(1984, 06, 06), 200);
+        String rekeningNrRichard = bank.openRekening("BSNtest", "Richard Aalten", LocalDate.of(1970, 12, 31), 200);
+        bank.transfermoney(rekeningNrEdwin, rekeningNrRichard, 100);
+
+        assertThat(bank.watIsMijnSaldo(rekeningNrEdwin), is(100));
+        assertThat(bank.watIsMijnSaldo(rekeningNrRichard), is(300));
+
     }
 }

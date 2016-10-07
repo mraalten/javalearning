@@ -79,6 +79,15 @@ public class Bank {
         rekening.printTransactie();
     }
 
+    public synchronized void transfermoney(String rekeningNummerFrom, String rekeningNummerTo, int amout){
+        withdraw(rekeningNummerFrom, amout);
+        deposit(rekeningNummerTo, amout);
+    }
 
+    public int watIsMijnSaldo(String rekeningNummer){
+        Rekening rekening = getRekening(rekeningNummer);
+        System.out.println("Jou saldo van rekeningnummer: " + rekeningNummer + " is " + rekening.getSaldo());
+        return rekening.getSaldo();
+    }
 
 }
