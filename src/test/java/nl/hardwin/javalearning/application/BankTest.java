@@ -50,6 +50,19 @@ public class BankTest {
 
         assertThat(bank.watIsMijnSaldo(rekeningNrEdwin), is(100));
         assertThat(bank.watIsMijnSaldo(rekeningNrRichard), is(300));
+    }
 
+    @Test (expected = IllegalStateException.class)
+    public void it_should_return_a_error_because_account_nummber_ont_exit(){
+        Bank bank = new Bank();
+        bank.openRekening("BSNtest", "Edwin Cox", LocalDate.of(1984, 06, 06), 200);
+        bank.withdraw("NLHDWN00000000", 500);
+    }
+
+    @Test
+    public void it_should_print_transaction_view(){
+        Bank bank = new Bank();
+        String rekeningNrEdwin = bank.openRekening("BSNtest", "Edwin Cox", LocalDate.of(1984, 06, 06), 200);
+        bank.printOverzichtTransacties(rekeningNrEdwin);
     }
 }
