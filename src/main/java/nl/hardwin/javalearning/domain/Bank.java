@@ -14,14 +14,14 @@ public class Bank {
     private int totalAmountSavings;
     private String findperson;
 
-    public String openRekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo) {
+    public String openRekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo, String controleMagJeRoodStaan) {
         Persoon persoon = personen.get(bsnNummer);
         if (persoon == null) {
             persoon = new Persoon(naam, geboorteDatum);
             this.personen.put(bsnNummer, persoon);
         }
         String rekeningNummer = generateRekeningNummer();
-        Rekening rekening = new Rekening(rekeningNummer, saldo);
+        Rekening rekening = new Rekening(rekeningNummer, saldo, controleMagJeRoodStaan);
         this.rekeningen.put(rekeningNummer, rekening);
         rekening.addCustomer(persoon);
         totalAmountSavings = totalAmountSavings + saldo;
@@ -70,9 +70,16 @@ public class Bank {
 
     public synchronized void withdraw(String rekeningNummer, int amountToWithdraw) {
         Rekening rekening = getRekening(rekeningNummer);
+        String foutcontrole = rekening.magIkRoodStaanControle(rekeningNummer);
+
+        if(foutcontrole == "nee" && amountToWithdraw > watIsMijnSaldo(rekeningNummer) ){
+            throw new IllegalStateException("Je mag niet rood staan op dit rekeningnummer: " + rekeningNummer);
+        }
+
         rekening.geldOpnemen(amountToWithdraw);
         totalAmountSavings = totalAmountSavings - amountToWithdraw;
     }
+
 
     public synchronized void printOverzichtTransacties(String rekeningNummer){
         Rekening rekening = getRekening(rekeningNummer);

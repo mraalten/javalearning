@@ -9,10 +9,16 @@ public class BankApplication {
 
     public static void main(String[] args) {
 
-        String rekeningNrRichard = rabobank.openRekening("BSN1212", "Richard", LocalDate.of(1970, 4, 9), 150);
+        String rekeningNrRichard = rabobank.openRekening("BSN1212", "Richard", LocalDate.of(1970, 4, 9), 150, "ja");
         rabobank.deposit(rekeningNrRichard, 175);
+        rabobank.printOverzichtTransacties(rekeningNrRichard);
+        rabobank.withdraw(rekeningNrRichard, 500);
+        rabobank.printOverzichtTransacties(rekeningNrRichard);
+        rabobank.watIsMijnSaldo(rekeningNrRichard);
+        rabobank.withdraw(rekeningNrRichard, 425);
+        rabobank.watIsMijnSaldo(rekeningNrRichard);
 
-        String rekeningNrEdwin = rabobank.openRekening("BSN2626","Edwin", LocalDate.of(1984, 7, 2), 150);
+        String rekeningNrEdwin = rabobank.openRekening("BSN2626","Edwin", LocalDate.of(1984, 7, 2), 150, "nee");
         rabobank.withdraw(rekeningNrEdwin, 75);
         rabobank.deposit(rekeningNrEdwin, 2300);
         rabobank.printOverzichtTransacties(rekeningNrEdwin);
