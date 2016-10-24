@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>HardWin Bank Homepage</title>
+    <link rel="stylesheet" type="text/css" href="css\theme.css">
+</head>
+<body data-ng-app="mijnWinkelwagenApp">
+    <div>
+        <div class="header">
+    <center>        <img src="images\HardWinLogo.jpg" height="300px" width="800px"></center>
+        </div>
+
+        <div class="menu">
+
+            <a href="#boodschappenlijst">NIEUWE REKENING</a>
+
+        </div>
+
+        <div>
+            <div ng-view></div>
+        </div>
+
+    </div>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="js\app.js"></script>
+    <script src="templates\winkelwagen-ctrl.js"></script>
+    <script src="templates\boodschappenlijst-service.js"></script>
+    <script src="templates\boodschappenlijst\boodschappenlijst-ctrl.js"></script>
+    <script src="templates\produktgroepen\produkt-groepen-ctrl.js"></script>
+    <script src="templates\produkten\produkten-ctrl.js"></script>
+
+</body>
+
+</html>

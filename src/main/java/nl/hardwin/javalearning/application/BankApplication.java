@@ -14,18 +14,18 @@ public class BankApplication {
         rabobank.printOverzichtTransacties(rekeningNrRichard);
         rabobank.withdraw(rekeningNrRichard, 500);
         rabobank.printOverzichtTransacties(rekeningNrRichard);
-        rabobank.watIsMijnSaldo(rekeningNrRichard);
+        rabobank.getSaldo(rekeningNrRichard);
         rabobank.withdraw(rekeningNrRichard, 425);
-        rabobank.watIsMijnSaldo(rekeningNrRichard);
+        rabobank.getSaldo(rekeningNrRichard);
 
         String rekeningNrEdwin = rabobank.openRekening("BSN2626","Edwin", LocalDate.of(1984, 7, 2), 150, "nee");
         rabobank.withdraw(rekeningNrEdwin, 75);
         rabobank.deposit(rekeningNrEdwin, 2300);
         rabobank.printOverzichtTransacties(rekeningNrEdwin);
-        rabobank.watIsMijnSaldo(rekeningNrEdwin);
+        rabobank.getSaldo(rekeningNrEdwin);
 
         printTotalSavings();
-        rabobank.transfermoney(rekeningNrEdwin, rekeningNrRichard, 25);
+        rabobank.transferMoney(rekeningNrEdwin, rekeningNrRichard, 25);
         rabobank.printOverzichtTransacties(rekeningNrEdwin);
 
         printTotalSavings();

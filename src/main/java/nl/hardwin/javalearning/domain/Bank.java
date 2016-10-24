@@ -43,9 +43,8 @@ public class Bank {
     }
 
     public Persoon findperson(String bsnNummer){
-        Persoon naam = personen.get(bsnNummer);
-        System.out.println(naam);
-        return naam;
+        Persoon persoon = personen.get(bsnNummer);
+        return persoon;
     }
 
     /**
@@ -63,16 +62,16 @@ public class Bank {
     private Rekening getRekening(String rekeningNummer) {
         Rekening rekening = rekeningen.get(rekeningNummer);
         if (rekening == null){
-            throw new IllegalStateException("De opgegeven rekening bestaat niet met waarde" + rekeningNummer);
+            throw new IllegalStateException("De opgegeven rekening bestaat niet met waarde " + rekeningNummer);
         }
         return rekening;
     }
 
-    public synchronized void withdraw(String rekeningNummer, int amountToWithdraw) {
+    public void withdraw(String rekeningNummer, int amountToWithdraw) {
         Rekening rekening = getRekening(rekeningNummer);
         String foutcontrole = rekening.magIkRoodStaanControle(rekeningNummer);
 
-        if(foutcontrole == "nee" && amountToWithdraw > watIsMijnSaldo(rekeningNummer) ){
+        if(foutcontrole == "nee" && amountToWithdraw > getSaldo(rekeningNummer) ){
             throw new IllegalStateException("Je mag niet rood staan op dit rekeningnummer: " + rekeningNummer);
         }
 
@@ -80,20 +79,18 @@ public class Bank {
         totalAmountSavings = totalAmountSavings - amountToWithdraw;
     }
 
-
-    public synchronized void printOverzichtTransacties(String rekeningNummer){
+    public void printOverzichtTransacties(String rekeningNummer){
         Rekening rekening = getRekening(rekeningNummer);
         rekening.printTransactie();
     }
 
-    public synchronized void transfermoney(String rekeningNummerFrom, String rekeningNummerTo, int amout){
+    public void transferMoney(String rekeningNummerFrom, String rekeningNummerTo, int amout){
         withdraw(rekeningNummerFrom, amout);
         deposit(rekeningNummerTo, amout);
     }
 
-    public int watIsMijnSaldo(String rekeningNummer){
+    public int getSaldo(String rekeningNummer){
         Rekening rekening = getRekening(rekeningNummer);
-        System.out.println("Jou saldo van rekeningnummer: " + rekeningNummer + " is " + rekening.getSaldo());
         return rekening.getSaldo();
     }
 

@@ -1,15 +1,14 @@
 package nl.hardwin.javalearning.application;
 
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
+import java.time.LocalDate;
+
 import nl.hardwin.javalearning.domain.Bank;
 
 import nl.hardwin.javalearning.domain.Persoon;
 import org.junit.Test;
-
-import java.time.LocalDate;
-
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 public class BankTest {
    
 
@@ -46,10 +45,11 @@ public class BankTest {
         Bank bank = new Bank();
         String rekeningNrEdwin = bank.openRekening("BSNtest", "Edwin Cox", LocalDate.of(1984, 06, 06), 200, "ja");
         String rekeningNrRichard = bank.openRekening("BSNtest", "Richard Aalten", LocalDate.of(1970, 12, 31), 200, "ja");
-        bank.transfermoney(rekeningNrEdwin, rekeningNrRichard, 100);
+        bank.transferMoney(rekeningNrEdwin, rekeningNrRichard, 100);
 
-        assertThat(bank.watIsMijnSaldo(rekeningNrEdwin), is(100));
-        assertThat(bank.watIsMijnSaldo(rekeningNrRichard), is(300));
+        assertThat(bank.getSaldo(rekeningNrEdwin), is(100));
+        assertThat(bank.getSaldo(rekeningNrRichard), is(300));
+        assertThat(bank.getTotalAmountSavings(), is(400));
     }
 
     @Test (expected = IllegalStateException.class)
