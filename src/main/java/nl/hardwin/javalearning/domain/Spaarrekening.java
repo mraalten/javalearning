@@ -9,8 +9,6 @@ public class Spaarrekening extends Rekening {
         super(rekeningnummer, saldo, "Nee");
     }
 
-
-
 }
 
 
