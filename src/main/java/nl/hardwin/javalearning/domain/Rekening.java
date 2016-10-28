@@ -13,16 +13,16 @@ public class Rekening {
     private String rekeningnummer;
     private int saldo;
     private List<Transactie> transacties = new ArrayList<>();
-    private Transactie transactie;
     private String controleMagJeRoodStaan;
 
-    public Rekening(String rekeningnummer, int saldo, String controleMagJeRoodStaan) {
+    public Rekening(String rekeningnummer, int saldo, String controleMagJeRoodStaan, Persoon persoon) {
         if (saldo < MINIMUM_START_SALDO){
             throw new IllegalStateException("Het minumum te storten bedrag is " + MINIMUM_START_SALDO + " euro");
         }
         this.rekeningnummer = rekeningnummer;
         this.saldo = saldo;
         this.controleMagJeRoodStaan = controleMagJeRoodStaan;
+        this.persoon = persoon;
     }
 
     public String magIkRoodStaanControle(String rekeningnummer){
@@ -87,7 +87,7 @@ public class Rekening {
         }
     }
 
-    public void addCustomer(Persoon persoon) {
+    public void setCustomer(Persoon persoon) {
         this.persoon = persoon;
     }
 
@@ -103,5 +103,8 @@ public class Rekening {
 
     }
 
+    public String getRekeningNummer() {
+        return rekeningnummer;
+    }
 }
 

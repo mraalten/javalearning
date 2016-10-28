@@ -5,43 +5,34 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import lombok.NonNull;
+
 public class Bank {
 
     private static final String BANK_IDENTIFICATION = "NLHDWN0";
     private Map<String, Rekening> rekeningen = new HashMap<>();
     private Map<String, Persoon> personen = new HashMap<>();
-    private Map<String, Spaarrekening> spaarrekeningen = new HashMap<>();
-    private Rekening rekening;
     private int totalAmountSavings;
-    private String findperson;
 
-    public String openRekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo, String controleMagJeRoodStaan) {
-        Persoon persoon = personen.get(bsnNummer);
-        if (persoon == null) {
-            persoon = new Persoon(naam, geboorteDatum);
-            this.personen.put(bsnNummer, persoon);
-        }
+    public String openBetaalrekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo) {
+        Persoon persoon = findperson(bsnNummer, naam, geboorteDatum);
         String rekeningNummer = generateRekeningNummer();
-        Rekening rekening = new Rekening(rekeningNummer, saldo, controleMagJeRoodStaan);
-        this.rekeningen.put(rekeningNummer, rekening);
-        rekening.addCustomer(persoon);
-        totalAmountSavings = totalAmountSavings + saldo;
+        Betaalrekening betaalrekening = new Betaalrekening(rekeningNummer, saldo, persoon);
+        addRekening(betaalrekening);
         return rekeningNummer;
     }
 
-
-    public String openSpaarRekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo){
-        Persoon persoon = personen.get(bsnNummer);
-        if (persoon == null) {
-            persoon = new Persoon(naam, geboorteDatum);
-            this.personen.put(bsnNummer, persoon);
-        }
+    public String openSpaarrekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo){
+        Persoon persoon = findperson(bsnNummer, naam, geboorteDatum);
         String rekeningNummer = generateRekeningNummer();
-        Spaarrekening spaarrekening = new Spaarrekening(rekeningNummer, saldo);
-        this.spaarrekeningen.put(rekeningNummer, spaarrekening);
-        spaarrekening.addCustomer(persoon);
-        totalAmountSavings = totalAmountSavings + saldo;
+        Spaarrekening spaarrekening = new Spaarrekening(rekeningNummer, saldo, persoon);
+        addRekening(spaarrekening);
         return rekeningNummer;
+    }
+
+    private void addRekening(Rekening rekening) {
+        this.rekeningen.put(rekening.getRekeningNummer(), rekening);
+        totalAmountSavings = totalAmountSavings + rekening.getSaldo();
     }
 
     private String generateRekeningNummer() {
@@ -58,8 +49,21 @@ public class Bank {
         return totalAmountSavings;
     }
 
-    public Persoon findperson(String bsnNummer){
+    /**
+     * This method tries to find a person based on BSN-number. If it does not exist it will create a new one and
+     * add it to the list
+     * @param bsnNummer the bsnNumber
+     * @param naam the name
+     * @param geboorteDatum the geboortedatum
+     * @return a person
+     */
+    @NonNull
+    public Persoon findperson(String bsnNummer, String naam, LocalDate geboorteDatum){
         Persoon persoon = personen.get(bsnNummer);
+        if (persoon == null) {
+            persoon = new Persoon(naam, geboorteDatum);
+            this.personen.put(bsnNummer, persoon);
+        }
         return persoon;
     }
 
@@ -81,14 +85,6 @@ public class Bank {
             throw new IllegalStateException("De opgegeven rekening bestaat niet met waarde " + rekeningNummer);
         }
         return rekening;
-    }
-
-    private Spaarrekening getSpaarrekening(String rekeningNummer){
-        Spaarrekening spaarrekening = spaarrekeningen.get(rekeningNummer);
-        if (spaarrekening == null){
-            throw new IllegalStateException("De opgegeven rekening bestaat niet met waarde " + rekeningNummer);
-        }
-        return spaarrekening;
     }
 
     public void withdraw(String rekeningNummer, int amountToWithdraw) {
@@ -119,8 +115,8 @@ public class Bank {
     }
 
     public int getSpaarSaldo(String rekeningNummer){
-        Spaarrekening spaarrekening = getSpaarrekening(rekeningNummer);
-        return spaarrekening.getSpaarSaldo();
+        Rekening rekening = getRekening(rekeningNummer);
+        return rekening.getSpaarSaldo();
     }
 
 }

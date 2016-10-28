@@ -1,8 +1,8 @@
 package nl.hardwin.javalearning.application;
 
-import nl.hardwin.javalearning.domain.Bank;
-
 import java.time.LocalDate;
+
+import nl.hardwin.javalearning.domain.Bank;
 
 public class BankApplication {
     private static Bank rabobank = new Bank();
@@ -18,7 +18,7 @@ public class BankApplication {
 //        rabobank.withdraw(rekeningNrRichard, 425);
 //        rabobank.getSaldo(rekeningNrRichard);
 
-        String spaarrekeningNrEdwin = rabobank.openSpaarRekening("BSN997766", "Edwin Spaar", LocalDate.of(1988, 6, 3), 1500);
+        String spaarrekeningNrEdwin = rabobank.openSpaarrekening("BSN997766", "Edwin Spaar", LocalDate.of(1988, 6, 3), 1500);
         rabobank.getSpaarSaldo(spaarrekeningNrEdwin);
         System.out.println(rabobank.getSpaarSaldo(spaarrekeningNrEdwin));
 

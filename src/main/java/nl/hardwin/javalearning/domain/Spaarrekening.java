@@ -1,12 +1,9 @@
 package nl.hardwin.javalearning.domain;
 
-/**
- * Created by edwincox on 28-10-2016.
- */
 public class Spaarrekening extends Rekening {
 
-    public Spaarrekening(String rekeningnummer, int saldo) {
-        super(rekeningnummer, saldo, "Nee");
+    public Spaarrekening(String rekeningnummer, int saldo, Persoon persoon) {
+        super(rekeningnummer, saldo, "Nee", persoon);
     }
 
 }
