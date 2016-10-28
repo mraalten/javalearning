@@ -10,6 +10,7 @@ public class Bank {
     private static final String BANK_IDENTIFICATION = "NLHDWN0";
     private Map<String, Rekening> rekeningen = new HashMap<>();
     private Map<String, Persoon> personen = new HashMap<>();
+    private Map<String, Spaarrekening> spaarrekeningen = new HashMap<>();
     private Rekening rekening;
     private int totalAmountSavings;
     private String findperson;
@@ -24,6 +25,21 @@ public class Bank {
         Rekening rekening = new Rekening(rekeningNummer, saldo, controleMagJeRoodStaan);
         this.rekeningen.put(rekeningNummer, rekening);
         rekening.addCustomer(persoon);
+        totalAmountSavings = totalAmountSavings + saldo;
+        return rekeningNummer;
+    }
+
+
+    public String openSpaarRekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo){
+        Persoon persoon = personen.get(bsnNummer);
+        if (persoon == null) {
+            persoon = new Persoon(naam, geboorteDatum);
+            this.personen.put(bsnNummer, persoon);
+        }
+        String rekeningNummer = generateRekeningNummer();
+        Spaarrekening spaarrekening = new Spaarrekening(rekeningNummer, saldo);
+        this.spaarrekeningen.put(rekeningNummer, spaarrekening);
+        spaarrekening.addCustomer(persoon);
         totalAmountSavings = totalAmountSavings + saldo;
         return rekeningNummer;
     }
@@ -67,6 +83,14 @@ public class Bank {
         return rekening;
     }
 
+    private Spaarrekening getSpaarrekening(String rekeningNummer){
+        Spaarrekening spaarrekening = spaarrekeningen.get(rekeningNummer);
+        if (spaarrekening == null){
+            throw new IllegalStateException("De opgegeven rekening bestaat niet met waarde " + rekeningNummer);
+        }
+        return spaarrekening;
+    }
+
     public void withdraw(String rekeningNummer, int amountToWithdraw) {
         Rekening rekening = getRekening(rekeningNummer);
         String foutcontrole = rekening.magIkRoodStaanControle(rekeningNummer);
@@ -92,6 +116,11 @@ public class Bank {
     public int getSaldo(String rekeningNummer){
         Rekening rekening = getRekening(rekeningNummer);
         return rekening.getSaldo();
+    }
+
+    public int getSpaarSaldo(String rekeningNummer){
+        Spaarrekening spaarrekening = getSpaarrekening(rekeningNummer);
+        return spaarrekening.getSpaarSaldo();
     }
 
 }

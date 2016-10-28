@@ -50,6 +50,11 @@ public class Rekening {
         return saldo;
     }
 
+    public int getSpaarSaldo(){
+        return saldo;
+    }
+
+
     public void stortGeld(int stortGeld){
         if (stortGeld >= 0) {
             saldo = stortGeld + saldo;
