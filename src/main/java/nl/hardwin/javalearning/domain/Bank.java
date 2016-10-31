@@ -3,46 +3,33 @@ package nl.hardwin.javalearning.domain;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 import lombok.NonNull;
 
 public class Bank {
 
-    private static final String BANK_IDENTIFICATION = "NLHDWN0";
+    public static final String BANK_IDENTIFICATION = "NLHDWN0";
     private Map<String, Rekening> rekeningen = new HashMap<>();
     private Map<String, Persoon> personen = new HashMap<>();
     private int totalAmountSavings;
 
     public String openBetaalrekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo) {
         Persoon persoon = findperson(bsnNummer, naam, geboorteDatum);
-        String rekeningNummer = generateRekeningNummer();
-        Betaalrekening betaalrekening = new Betaalrekening(rekeningNummer, saldo, persoon);
-        addRekening(betaalrekening);
-        return rekeningNummer;
+        Betaalrekening betaalrekening = new Betaalrekening(saldo, persoon);
+        addRekening(betaalrekening, naam, geboorteDatum);
+        return betaalrekening.getRekeningNummer();
     }
 
     public String openSpaarrekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo){
         Persoon persoon = findperson(bsnNummer, naam, geboorteDatum);
-        String rekeningNummer = generateRekeningNummer();
-        Spaarrekening spaarrekening = new Spaarrekening(rekeningNummer, saldo, persoon);
-        addRekening(spaarrekening);
-        return rekeningNummer;
+        Spaarrekening spaarrekening = new Spaarrekening(saldo, persoon);
+        addRekening(spaarrekening, naam, geboorteDatum);
+        return spaarrekening.getRekeningNummer();
     }
 
-    private void addRekening(Rekening rekening) {
+    private void addRekening(Rekening rekening, String naam, LocalDate geboorteDatum) {
         this.rekeningen.put(rekening.getRekeningNummer(), rekening);
         totalAmountSavings = totalAmountSavings + rekening.getSaldo();
-    }
-
-    private String generateRekeningNummer() {
-        Random randomGenerator = new Random();
-        StringBuilder sb = new StringBuilder();
-        for (int idx = 1; idx <= 9; ++idx){
-            int randomInt = randomGenerator.nextInt(10);
-            sb.append(randomInt);
-        }
-        return BANK_IDENTIFICATION + sb.toString();
     }
 
     public int getTotalAmountSavings() {
@@ -79,7 +66,7 @@ public class Bank {
         totalAmountSavings = totalAmountSavings + amountToDeposit;
     }
 
-    private Rekening getRekening(String rekeningNummer) {
+    public Rekening getRekening(String rekeningNummer) {
         Rekening rekening = rekeningen.get(rekeningNummer);
         if (rekening == null){
             throw new IllegalStateException("De opgegeven rekening bestaat niet met waarde " + rekeningNummer);
@@ -104,9 +91,9 @@ public class Bank {
         rekening.printTransactie();
     }
 
-    public void transferMoney(String rekeningNummerFrom, String rekeningNummerTo, int amout){
-        withdraw(rekeningNummerFrom, amout);
-        deposit(rekeningNummerTo, amout);
+    public void transferMoney(String rekeningNummerFrom, String rekeningNummerTo, int amount){
+        withdraw(rekeningNummerFrom, amount);
+        deposit(rekeningNummerTo, amount);
     }
 
     public int getSaldo(String rekeningNummer){

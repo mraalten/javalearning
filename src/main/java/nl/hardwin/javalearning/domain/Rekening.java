@@ -4,8 +4,9 @@ package nl.hardwin.javalearning.domain;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public class Rekening {
+public abstract class Rekening {
 
     public static final int MINIMUM_START_SALDO = 100;
     public static final int MAXIMUM_ROOD_STAAN = -100;
@@ -15,15 +16,33 @@ public class Rekening {
     private List<Transactie> transacties = new ArrayList<>();
     private String controleMagJeRoodStaan;
 
-    public Rekening(String rekeningnummer, int saldo, String controleMagJeRoodStaan, Persoon persoon) {
+    /**
+     * No-arg default construct for JAXB and Rest-calls.
+     */
+    public Rekening() {
+    }
+
+    public Rekening(int saldo, String controleMagJeRoodStaan, Persoon persoon) {
         if (saldo < MINIMUM_START_SALDO){
             throw new IllegalStateException("Het minumum te storten bedrag is " + MINIMUM_START_SALDO + " euro");
         }
-        this.rekeningnummer = rekeningnummer;
+        this.rekeningnummer = generateRekeningNummer();
         this.saldo = saldo;
         this.controleMagJeRoodStaan = controleMagJeRoodStaan;
         this.persoon = persoon;
     }
+
+    private String generateRekeningNummer() {
+        Random randomGenerator = new Random();
+        StringBuilder sb = new StringBuilder();
+        for (int idx = 1; idx <= 5; ++idx){
+            int randomInt = randomGenerator.nextInt(10);
+            sb.append(randomInt);
+        }
+        return Bank.BANK_IDENTIFICATION + getPrefix() + sb.toString();
+    }
+
+    abstract String getPrefix();
 
     public String magIkRoodStaanControle(String rekeningnummer){
         return getControleMagJeRoodStaan();
@@ -106,5 +125,6 @@ public class Rekening {
     public String getRekeningNummer() {
         return rekeningnummer;
     }
+
 }
 
