@@ -16,12 +16,6 @@ public abstract class Rekening {
     private List<Transactie> transacties = new ArrayList<>();
     private String controleMagJeRoodStaan;
 
-    /**
-     * No-arg default construct for JAXB and Rest-calls.
-     */
-    public Rekening() {
-    }
-
     public Rekening(int saldo, String controleMagJeRoodStaan, Persoon persoon) {
         if (saldo < MINIMUM_START_SALDO){
             throw new IllegalStateException("Het minumum te storten bedrag is " + MINIMUM_START_SALDO + " euro");
@@ -56,6 +50,9 @@ public abstract class Rekening {
         return transacties;
     }
 
+    public String getVolledigeNaam() {
+        return persoon.getVolledigeNaam();
+    }
 
     @Override
     public String toString() {

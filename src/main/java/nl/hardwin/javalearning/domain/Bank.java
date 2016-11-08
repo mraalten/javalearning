@@ -1,7 +1,9 @@
 package nl.hardwin.javalearning.domain;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import lombok.NonNull;
@@ -106,4 +108,7 @@ public class Bank {
         return rekening.getSpaarSaldo();
     }
 
+    public List<Rekening> getAllRekeningen() {
+        return new ArrayList<>(rekeningen.values());
+    }
 }

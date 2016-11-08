@@ -4,11 +4,16 @@
     <table>
         <tr>
             <td>Rekeningnummer</td>
-            <td><input type="text" name="rekeningNummer" /></td>
+            <td><input type="text" data-ng-model="rekeningNummer" /></td>
         </tr>
         <tr>
-            <td><input type="submit" class="button" data-ng-click="zoekenRekening('NL37HDWN1234')" value="Verzenden" /> </td>
+            <td><input type="submit" class="button" data-ng-click="zoekenRekening()" value="Verzenden" /> </td>
         </tr>
     </table>
     <h2>Overzicht</h2>
+    <div data-ng-repeat="rekening in rekeningen">
+        <div>
+            {rekening.naam}
+        </div>
+    </div>
 </div>

@@ -8,21 +8,30 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import nl.hardwin.javalearning.domain.MyRekening;
+import nl.hardwin.javalearning.domain.Rekening;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class RekeningenViewModel {
 
     @XmlElement
-    private List<MyRekening> rekeningen = new ArrayList<>();
+    private List<RekeningViewModel> rekeningen = new ArrayList<>();
 
-    public void addMyRekening(MyRekening myRekening) {
-        rekeningen.add(myRekening);
+    public void addRekening(RekeningViewModel rekeningenViewModel) {
+        rekeningen.add(rekeningenViewModel);
     }
-//    public void addRekening(Rekening rekening) {
-//        if (rekening != null) {
-//            rekeningen.add(rekening);
-//        }
-//    }
+
+    public static RekeningenViewModel toViewModel(Rekening rekening) {
+        RekeningenViewModel viewModel = new RekeningenViewModel();
+        viewModel.addRekening(RekeningViewModel.toViewModel(rekening));
+        return viewModel;
+    }
+
+    public static RekeningenViewModel toViewModel(List<Rekening> rekeningen) {
+        RekeningenViewModel viewModel = new RekeningenViewModel();
+        for (Rekening rekening : rekeningen) {
+            viewModel.addRekening(RekeningViewModel.toViewModel(rekening));
+        }
+        return viewModel;
+    }
 }

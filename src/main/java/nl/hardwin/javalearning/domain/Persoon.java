@@ -45,4 +45,8 @@ public class Persoon {
         }
         return age;
     }
+
+    public String getVolledigeNaam() {
+        return naam;
+    }
 }
