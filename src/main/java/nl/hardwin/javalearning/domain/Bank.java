@@ -15,16 +15,16 @@ public class Bank {
     private Map<String, Persoon> personen = new HashMap<>();
     private int totalAmountSavings;
 
-    public String openBetaalrekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo) {
+    public String openBetaalrekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo, int kredietLimiet) {
         Persoon persoon = findperson(bsnNummer, naam, geboorteDatum);
-        Betaalrekening betaalrekening = new Betaalrekening(saldo, persoon);
+        Betaalrekening betaalrekening = new Betaalrekening(saldo, kredietLimiet, persoon);
         addRekening(betaalrekening, naam, geboorteDatum);
         return betaalrekening.getRekeningNummer();
     }
 
-    public String openSpaarrekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo){
+    public String openSpaarrekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo, int kredietLimiet){
         Persoon persoon = findperson(bsnNummer, naam, geboorteDatum);
-        Spaarrekening spaarrekening = new Spaarrekening(saldo, persoon);
+        Spaarrekening spaarrekening = new Spaarrekening(saldo, kredietLimiet, persoon);
         addRekening(spaarrekening, naam, geboorteDatum);
         return spaarrekening.getRekeningNummer();
     }
@@ -78,12 +78,6 @@ public class Bank {
 
     public void withdraw(String rekeningNummer, int amountToWithdraw) {
         Rekening rekening = getRekening(rekeningNummer);
-        String foutcontrole = rekening.magIkRoodStaanControle(rekeningNummer);
-
-        if(foutcontrole == "nee" && amountToWithdraw > getSaldo(rekeningNummer) ){
-            throw new IllegalStateException("Je mag niet rood staan op dit rekeningnummer: " + rekeningNummer);
-        }
-
         rekening.geldOpnemen(amountToWithdraw);
         totalAmountSavings = totalAmountSavings - amountToWithdraw;
     }

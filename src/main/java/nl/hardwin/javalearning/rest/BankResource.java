@@ -24,8 +24,8 @@ public class BankResource {
 
     public BankResource() {
         logger.info("Application started. BankResource loaded");
-        hardwinBank.openSpaarrekening("192295093", "Richard Aalten", LocalDate.of(1970, 4, 9), 150);
-        hardwinBank.openBetaalrekening("192722125", "Hedi Aalten", LocalDate.of(1974, 1, 14), 200);
+        hardwinBank.openSpaarrekening("192295093", "Richard Aalten", LocalDate.of(1970, 4, 9), 150, 100);
+        hardwinBank.openBetaalrekening("192722125", "Hedi Aalten", LocalDate.of(1974, 1, 14), 200, 150);
     }
 
     @GET

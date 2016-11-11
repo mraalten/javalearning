@@ -7,8 +7,8 @@ public class Spaarrekening extends Rekening {
 
     private static final String SPAARREKENING_PREFIX = "3177";
 
-    public Spaarrekening(int saldo, Persoon persoon) {
-        super(saldo, "Nee", persoon);
+    public Spaarrekening(int saldo, int kredietlimiet, Persoon persoon) {
+        super(saldo, kredietlimiet, persoon);
     }
 
     @Override

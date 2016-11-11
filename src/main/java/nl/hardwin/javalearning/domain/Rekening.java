@@ -14,15 +14,15 @@ public abstract class Rekening {
     private String rekeningnummer;
     private int saldo;
     private List<Transactie> transacties = new ArrayList<>();
-    private String controleMagJeRoodStaan;
+    private int kredietLimiet;
 
-    public Rekening(int saldo, String controleMagJeRoodStaan, Persoon persoon) {
+    public Rekening(int saldo, int kredietLimiet, Persoon persoon) {
         if (saldo < MINIMUM_START_SALDO){
             throw new IllegalStateException("Het minumum te storten bedrag is " + MINIMUM_START_SALDO + " euro");
         }
         this.rekeningnummer = generateRekeningNummer();
         this.saldo = saldo;
-        this.controleMagJeRoodStaan = controleMagJeRoodStaan;
+        this.kredietLimiet = -kredietLimiet;
         this.persoon = persoon;
     }
 
@@ -37,14 +37,6 @@ public abstract class Rekening {
     }
 
     abstract String getPrefix();
-
-    public String magIkRoodStaanControle(String rekeningnummer){
-        return getControleMagJeRoodStaan();
-    }
-
-    public String getControleMagJeRoodStaan() {
-        return controleMagJeRoodStaan;
-    }
 
     public List<Transactie> getTransacties() {
         return transacties;
@@ -72,35 +64,26 @@ public abstract class Rekening {
 
 
     public void stortGeld(int stortGeld){
-        if (stortGeld >= 0) {
-            saldo = stortGeld + saldo;
-            Transactie transactie = new Transactie("Storting", new BigDecimal(stortGeld), OpAfnameType.STORTEN);
-            transacties.add(transactie);
-        } else {
+        if (stortGeld < 0) {
             throw new IllegalArgumentException("U kunt geen negatief bedrag storten");
         }
+        saldo = stortGeld + saldo;
+        Transactie transactie = new Transactie("Storting", new BigDecimal(stortGeld), OpAfnameType.STORTEN);
+        transacties.add(transactie);
     }
 
-    public void geldOpnemen(int geldOpenmen) {
-        if (magIkRoodStaanControle(rekeningnummer) == "ja") {
-            int beschermgetal = saldo - MAXIMUM_ROOD_STAAN;
-
-            if (beschermgetal >= geldOpenmen && saldo > MAXIMUM_ROOD_STAAN) {
-                saldo = saldo - geldOpenmen;
-                Transactie transactie = new Transactie("Opnamen", new BigDecimal(geldOpenmen), OpAfnameType.OPNEMEN);
-                transacties.add(transactie);
-            } else {
-                System.out.println("U kunt geen geld opnemen saldo te weinig, transactie wordt verbroken");
-            }
-        }else{
-            if (saldo > 0 && saldo >= geldOpenmen) {
-                saldo = saldo - geldOpenmen;
-                Transactie transactie = new Transactie("Opnamen", new BigDecimal(geldOpenmen), OpAfnameType.OPNEMEN);
-                transacties.add(transactie);
-            } else {
-                throw new IllegalStateException("U kunt geen geld opnemen saldo te weinig");
-            }
+    public void geldOpnemen(int bedrag) {
+        if (onvoldoendeSaldoEnKredietlimietBereikt(bedrag)) {
+            throw new IllegalStateException("Onvoldoende saldo en kredietlimiet bereikt");
         }
+        saldo = saldo - bedrag;
+        Transactie transactie = new Transactie("Opname", new BigDecimal(bedrag), OpAfnameType.OPNEMEN);
+        transacties.add(transactie);
+    }
+
+    private boolean onvoldoendeSaldoEnKredietlimietBereikt(int bedrag) {
+        int saldoNaOpname = saldo - bedrag;
+        return saldoNaOpname < 0 && saldoNaOpname < kredietLimiet;
     }
 
     public void setCustomer(Persoon persoon) {
