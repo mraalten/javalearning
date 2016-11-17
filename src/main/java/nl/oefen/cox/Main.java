@@ -15,7 +15,7 @@ public class Main {
         // 6 ,,   Zelfbouw-woning toe
         // 7 druk de gegevens af
         HypotheekDossier hypotheekDossier = new HypotheekDossier();
-        Lening lening = new Lening(123);
+        //Lening lening = new Lening(123);
         hypotheekDossier.addLening("Edwin", LocalDate.of(1988, 6, 3), "Drabbelsweg 8");
 
 
