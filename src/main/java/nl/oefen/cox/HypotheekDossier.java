@@ -16,8 +16,7 @@ public class HypotheekDossier {
     }
 
     public void addWoning(String naam, LocalDate geboortedatum, String adresgegevens){
-       Persoon persoon = new Persoon(naam,  geboortedatum,  adresgegevens);
-
+       persoon = new Persoon(naam,  geboortedatum,  adresgegevens);
 
     }
 
