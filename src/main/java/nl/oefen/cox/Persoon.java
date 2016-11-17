@@ -10,7 +10,7 @@ public class Persoon {
     public Persoon(String naam, LocalDate geboorteDatum, String straatNaam) {
         this.naam = naam;
         this.geboorteDatum = geboorteDatum;
-        Adres adres = new Adres(straatNaam);
+        adres = new Adres(straatNaam);
 
     }
 }
