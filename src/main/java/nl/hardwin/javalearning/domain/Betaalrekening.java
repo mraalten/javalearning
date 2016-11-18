@@ -14,4 +14,5 @@ public class Betaalrekening extends Rekening {
     String getPrefix() {
         return BETAALREKENING_PREFIX;
     }
+
 }

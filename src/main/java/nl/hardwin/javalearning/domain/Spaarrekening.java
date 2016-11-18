@@ -15,6 +15,7 @@ public class Spaarrekening extends Rekening {
     String getPrefix() {
         return SPAARREKENING_PREFIX;
     }
+
 }
 
 

@@ -1,6 +1,6 @@
 package nl.hardwin.javalearning.domain;
 
-
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -63,8 +63,25 @@ public abstract class Rekening {
         return saldo;
     }
 
+    public void stortGeld(int stortGeld){
+        if (stortGeld < 0) {
+            throw new IllegalArgumentException("U kunt geen negatief bedrag storten");
+        }
+        saldo = stortGeld + saldo;
+        Transactie transactie = new Transactie("Storting", new BigDecimal(stortGeld), OpAfnameType.STORTEN);
+        transacties.add(transactie);
+    }
 
-    protected boolean onvoldoendeSaldoEnKredietlimietBereikt(int bedrag) {
+    public void geldOpnemen(int bedrag) {
+        if (onvoldoendeSaldoEnKredietlimietBereikt(bedrag)) {
+            throw new IllegalStateException("Onvoldoende saldo en kredietlimiet bereikt");
+        }
+        saldo = saldo - bedrag;
+        Transactie transactie = new Transactie("Opname", new BigDecimal(bedrag), OpAfnameType.OPNEMEN);
+        transacties.add(transactie);
+    }
+
+    private boolean onvoldoendeSaldoEnKredietlimietBereikt(int bedrag) {
         int saldoNaOpname = saldo - bedrag;
         return saldoNaOpname < 0 && saldoNaOpname < kredietLimiet;
     }
@@ -90,8 +107,5 @@ public abstract class Rekening {
     }
 
 
-    public abstract void stortGeld(int amountToDeposit);
-
-    public abstract void geldOpnemen(int amountToWithdraw);
 }
 
