@@ -11,6 +11,9 @@ public class HypotheekDossier {
     private Persoon persoon;
     private Annuiteit annuiteit;
     private Linear linear;
+    private Woning woning;
+    private Nieuwbouw nieuwbouw;
+    private Zelfbouw zelfbouw;
 
     public int addPersoon(String naam, LocalDate geboorteDatum, String straatNaam){
       persoon = new Persoon(naam, geboorteDatum, straatNaam);
@@ -26,6 +29,15 @@ public class HypotheekDossier {
     public void addLineaire(int bedrag, int looptijd){
         linear = new Linear(bedrag, looptijd);
 
+    }
+
+    public void addNieuwbouw(String straatnaam, int koopsom){
+        nieuwbouw = new Nieuwbouw(straatnaam, koopsom);
+
+    }
+
+    public void addZelfbouw(String straatNaam, int bouwkosten){
+        zelfbouw = new Zelfbouw(straatNaam, bouwkosten);
     }
 
 //    public void addPersoon(String naam, LocalDate geboorteDatum, String straatNaam){

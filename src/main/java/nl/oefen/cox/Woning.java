@@ -5,8 +5,9 @@ package nl.oefen.cox;
  */
 public abstract class Woning {
 
-    public void woningtest(){
+    private Adres adres;
 
+    public Woning(String straatnaam) {
+        adres = new Adres(straatnaam);
     }
-
 }

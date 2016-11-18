@@ -21,9 +21,13 @@ public class Main {
         hypotheekDossier.addLineaire(250000, 3000);
 
         // 5 voeg Nieuwbouw-woning toe
+        hypotheekDossier.addNieuwbouw("Goudsmidstraat 2", 950000);
 
         // 6 ,,   Zelfbouw-woning toe
+        hypotheekDossier.addZelfbouw("Flapperstraat 77", 222000 );
+
         // 7 druk de gegevens af
+
 
 
 
