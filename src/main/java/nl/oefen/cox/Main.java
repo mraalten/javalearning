@@ -32,7 +32,6 @@ public class Main {
         System.out.println(hypotheekDossier.getPersoon().getAdres());
         System.out.println(hypotheekDossier.getPersoon().getGeboorteDatum());
 
-        System.out.println(hypotheekDossier.);
 
 
     }
