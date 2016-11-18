@@ -1,7 +1,6 @@
 package nl.hardwin.javalearning.domain;
 
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -11,10 +10,11 @@ public abstract class Rekening {
     public static final int MINIMUM_START_SALDO = 100;
     public static final int MAXIMUM_ROOD_STAAN = -100;
     private Persoon persoon;
+    protected int saldo;
     private String rekeningnummer;
-    private int saldo;
-    private List<Transactie> transacties = new ArrayList<>();
-    private int kredietLimiet;
+
+    List<Transactie> transacties = new ArrayList<>();
+    protected int kredietLimiet;
 
     public Rekening(int saldo, int kredietLimiet, Persoon persoon) {
         if (saldo < MINIMUM_START_SALDO){
@@ -46,6 +46,7 @@ public abstract class Rekening {
         return persoon.getVolledigeNaam();
     }
 
+
     @Override
     public String toString() {
         return "Bankaccount{" +
@@ -63,25 +64,7 @@ public abstract class Rekening {
     }
 
 
-    public void stortGeld(int stortGeld){
-        if (stortGeld < 0) {
-            throw new IllegalArgumentException("U kunt geen negatief bedrag storten");
-        }
-        saldo = stortGeld + saldo;
-        Transactie transactie = new Transactie("Storting", new BigDecimal(stortGeld), OpAfnameType.STORTEN);
-        transacties.add(transactie);
-    }
-
-    public void geldOpnemen(int bedrag) {
-        if (onvoldoendeSaldoEnKredietlimietBereikt(bedrag)) {
-            throw new IllegalStateException("Onvoldoende saldo en kredietlimiet bereikt");
-        }
-        saldo = saldo - bedrag;
-        Transactie transactie = new Transactie("Opname", new BigDecimal(bedrag), OpAfnameType.OPNEMEN);
-        transacties.add(transactie);
-    }
-
-    private boolean onvoldoendeSaldoEnKredietlimietBereikt(int bedrag) {
+    protected boolean onvoldoendeSaldoEnKredietlimietBereikt(int bedrag) {
         int saldoNaOpname = saldo - bedrag;
         return saldoNaOpname < 0 && saldoNaOpname < kredietLimiet;
     }
@@ -106,5 +89,9 @@ public abstract class Rekening {
         return rekeningnummer;
     }
 
+
+    public abstract void stortGeld(int amountToDeposit);
+
+    public abstract void geldOpnemen(int amountToWithdraw);
 }
 

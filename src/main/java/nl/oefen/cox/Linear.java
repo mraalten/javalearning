@@ -11,7 +11,4 @@ public class Linear extends Lening{
         this.looptijd = looptijd;
     }
 
-    public int getLooptijd() {
-        return looptijd;
-    }
 }
