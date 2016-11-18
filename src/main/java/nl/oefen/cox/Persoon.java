@@ -13,4 +13,16 @@ public class Persoon {
         adres = new Adres(straatNaam);
 
     }
+
+    public String getNaam() {
+        return naam;
+    }
+
+    public LocalDate getGeboorteDatum() {
+        return geboorteDatum;
+    }
+
+    public String getAdres() {
+        return adres.getStraatNaam();
+    }
 }

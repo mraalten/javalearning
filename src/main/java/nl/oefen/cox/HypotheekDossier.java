@@ -40,22 +40,7 @@ public class HypotheekDossier {
         zelfbouw = new Zelfbouw(straatNaam, bouwkosten);
     }
 
-//    public void addPersoon(String naam, LocalDate geboorteDatum, String straatNaam){
-//        persoon = new Persoon(naam, geboorteDatum, straatNaam);
-//    }
-
-
-//    public int addLening(int bedrag, int termijnenAnnuiteit){
-//        annuiteit = new Annuiteit(bedrag, termijnenAnnuiteit);
-//
-//
-//        return leningDeel;
-//    }
-
-
-    public void addWoning(String naam, LocalDate geboortedatum, String adresgegevens){
-       persoon = new Persoon(naam,  geboortedatum,  adresgegevens);
-
+    public Persoon getPersoon() {
+        return persoon;
     }
-
 }

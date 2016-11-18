@@ -28,8 +28,11 @@ public class Main {
 
         // 7 druk de gegevens af
 
+        System.out.println(hypotheekDossier.getPersoon().getNaam());
+        System.out.println(hypotheekDossier.getPersoon().getAdres());
+        System.out.println(hypotheekDossier.getPersoon().getGeboorteDatum());
 
-
+        System.out.println(hypotheekDossier.);
 
 
     }

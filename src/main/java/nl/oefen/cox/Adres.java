@@ -9,4 +9,8 @@ public class Adres {
     public Adres(String straatNaam) {
         this.straatNaam = straatNaam;
     }
+
+    public String getStraatNaam() {
+        return straatNaam;
+    }
 }
