@@ -8,14 +8,16 @@ public class Main {
     public static void main(String[] args) {
 
         // 1 maak hypotheek dossier
-        HypotheekDossier hypotheekDossier = new HypotheekDossier();
+        HypotheekDossier hypotheekDossier = new HypotheekDossier("Leo", LocalDate.of(1962, 6, 3), "Drabbelsweg 34");
 
         // 2 maak Persoon en koppel
         int idEdwin = hypotheekDossier.addPersoon("Edwin", LocalDate.of(1988, 6, 3), "Drabbelsweg 8");
         //System.out.println("id terug = " + idEdwin);
 
         // 3 voeg Annuitaire lening toe
-        hypotheekDossier.addLening(400000, 3600);
+        hypotheekDossier.addAnnuiteit(1, 400000, 3600);
+        hypotheekDossier.addAnnuiteit(2, 500000, 5600);
+        hypotheekDossier.addAnnuiteit(3, 23, 23);
 
         // 4 ,,   Lineaire ,,
         hypotheekDossier.addLineaire(250000, 3000);

@@ -10,4 +10,8 @@ public class Annuiteit extends Lening {
         super(bedrag);
         this.termijnenAnnuiteit = termijnenAnnuiteit;
     }
+
+    public int getTermijnenAnnuiteit() {
+        return termijnenAnnuiteit;
+    }
 }
