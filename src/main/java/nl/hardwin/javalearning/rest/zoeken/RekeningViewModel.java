@@ -1,10 +1,10 @@
 package nl.hardwin.javalearning.rest.zoeken;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 import lombok.Getter;
 import lombok.Setter;
 import nl.hardwin.javalearning.domain.Rekening;
+
+import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @Setter
@@ -25,4 +25,7 @@ public class RekeningViewModel {
         return viewModel;
     }
 
+    public void setNaam(String naam) {
+        this.naam = naam;
+    }
 }
