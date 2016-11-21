@@ -21,7 +21,7 @@ public class RekeningViewModel {
 
     public static RekeningViewModel toViewModel(Rekening rekening) {
         RekeningViewModel viewModel = new RekeningViewModel();
-        viewModel.setNaam(rekening.getVolledigeNaam());
+        //viewModel.setNaam(rekening.getVolledigeNaam());
         return viewModel;
     }
 

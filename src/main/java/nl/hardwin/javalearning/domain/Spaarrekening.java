@@ -16,6 +16,17 @@ public class Spaarrekening extends Rekening {
         return SPAARREKENING_PREFIX;
     }
 
+    @Override
+    public void stortGeld(int amountToDeposit) {
+
+    }
+
+    @Override
+    public void geldOpnemen(int amountToWithdraw) {
+
+    }
+
+
 }
 
 

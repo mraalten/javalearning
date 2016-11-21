@@ -1,12 +1,12 @@
 package nl.hardwin.javalearning.domain;
 
+import lombok.NonNull;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import lombok.NonNull;
 
 public class Bank {
 
@@ -64,7 +64,9 @@ public class Bank {
      */
     public synchronized void deposit(String rekeningNummer, int amountToDeposit) {
         Rekening rekening = getRekening(rekeningNummer);
+        //rekening.stortGeld(amountToDeposit);
         rekening.stortGeld(amountToDeposit);
+
         totalAmountSavings = totalAmountSavings + amountToDeposit;
     }
 

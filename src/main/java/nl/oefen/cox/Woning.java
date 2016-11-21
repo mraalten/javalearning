@@ -10,4 +10,8 @@ public abstract class Woning {
     public Woning(String straatnaam) {
         adres = new Adres(straatnaam);
     }
+
+
+
+
 }

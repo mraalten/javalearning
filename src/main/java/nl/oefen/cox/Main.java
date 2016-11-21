@@ -13,8 +13,8 @@ public class Main {
         // 2 maak Persoon en koppel
         // 3 voeg Annuitaire lening toe
         // 4 ,,   Lineaire ,,
-        Annuiteit annuiteit = new Annuiteit( 400000, 3690);
-        Linear linear = new Linear(555, 78);
+        Annuiteit annuiteit = new Annuiteit( 500000, 3690);
+        Linear linear = new Linear(500, 78);
         hypotheekDossier.addLening(annuiteit);
         hypotheekDossier.addLening(linear);
 
@@ -23,20 +23,26 @@ public class Main {
 
         // 5 voeg Nieuwbouw-woning toe
         hypotheekDossier.addWoning(new Nieuwbouw("Goudsmidstraat 555", 686868));
-//        hypotheekDossier.addNieuwbouw("Goudsmidstraat 2", 950000);
 
         // 6 ,,   Zelfbouw-woning toe
- //       hypotheekDossier.addZelfbouw("Flapperstraat 77", 222000 );
         hypotheekDossier.addWoning(new Zelfbouw("Vlinderstraat 555", 686868));
         hypotheekDossier.addWoning(new Zelfbouw("Hoekhuis 555", 686868));
 
-
         // 7 druk de gegevens af
+        // Druk persoon gegevens af:
+        hypotheekDossier.getPersoon().printPersoonGegevens();
 
-        System.out.println(hypotheekDossier.getPersoon().getNaam());
-        System.out.println(hypotheekDossier.getPersoon().getAdres());
-        System.out.println(hypotheekDossier.getPersoon().getGeboorteDatum());
+        // Druk Lening geld totaal af:
+        hypotheekDossier.gettotaalGeldBedragLeningen();
 
+        // Druk woning af:
+
+
+        // Print aantal leningen
+        hypotheekDossier.getAantalLeningen();
+
+        // Print aantal woningen
+        hypotheekDossier.getAantalWoningen();
 
 
 

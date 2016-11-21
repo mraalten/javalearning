@@ -13,4 +13,6 @@ public class Adres {
     public String getStraatNaam() {
         return straatNaam;
     }
+
+    
 }

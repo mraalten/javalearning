@@ -81,7 +81,7 @@ public abstract class Rekening {
         transacties.add(transactie);
     }
 
-    private boolean onvoldoendeSaldoEnKredietlimietBereikt(int bedrag) {
+    boolean onvoldoendeSaldoEnKredietlimietBereikt(int bedrag) {
         int saldoNaOpname = saldo - bedrag;
         return saldoNaOpname < 0 && saldoNaOpname < kredietLimiet;
     }

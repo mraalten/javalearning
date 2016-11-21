@@ -25,4 +25,10 @@ public class Persoon {
     public String getAdres() {
         return adres.getStraatNaam();
     }
+
+    public void printPersoonGegevens(){
+        System.out.println("Persoon: " + getNaam());
+        System.out.println("Geboortedatum: " + getGeboorteDatum());
+        System.out.println("Adres: " + getAdres());
+    }
 }

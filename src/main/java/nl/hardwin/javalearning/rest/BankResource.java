@@ -15,6 +15,7 @@ import javax.ws.rs.QueryParam;
 import java.time.LocalDate;
 import java.util.List;
 
+
 @Component
 public class BankResource {
     private Bank hardwinBank = new Bank();

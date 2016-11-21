@@ -11,7 +11,5 @@ public class Annuiteit extends Lening {
         this.termijnenAnnuiteit = termijnenAnnuiteit;
     }
 
-    public int getTermijnenAnnuiteit() {
-        return termijnenAnnuiteit;
-    }
+
 }

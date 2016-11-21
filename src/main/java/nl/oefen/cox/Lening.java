@@ -5,10 +5,13 @@ package nl.oefen.cox;
  */
 public abstract class Lening   {
     private int bedrag;
+    private int totaalAlleLeningen;
 
         public Lening(int bedrag) {
         this.bedrag = bedrag;
     }
 
-
+    public int getBedrag() {
+        return bedrag;
+    }
 }
