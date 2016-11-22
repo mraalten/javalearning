@@ -31,11 +31,10 @@ public class HypotheekDossier {
 
     public void printWoningGegevens(){
         for(Woning woning : woningen) {
-            System.out.println(woning.getAdres());
+            System.out.println(woning.toString());
         }
-
-
     }
+
 
     public void addWoning(Woning woning){
         woningen.add(woning);

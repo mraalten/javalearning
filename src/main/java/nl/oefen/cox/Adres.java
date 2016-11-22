@@ -14,5 +14,8 @@ public class Adres {
         return straatNaam;
     }
 
-    
+    @Override
+    public String toString() {
+        return straatNaam  ;
+    }
 }

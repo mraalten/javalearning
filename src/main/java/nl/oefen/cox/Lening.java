@@ -14,4 +14,6 @@ public abstract class Lening   {
     public int getBedrag() {
         return bedrag;
     }
+
+
 }

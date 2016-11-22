@@ -14,4 +14,14 @@ public abstract class Woning {
     public Adres getAdres() {
         return adres;
     }
+
+    @Override
+    public String toString() {
+        return "Woningadres: " + adres + " Betreft bouw: " + getbouw() + " Bedrag: " + getPrefix() ;
+
+    }
+
+    abstract int getPrefix();
+
+    abstract String getbouw();
 }

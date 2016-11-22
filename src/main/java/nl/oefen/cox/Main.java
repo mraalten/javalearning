@@ -22,11 +22,11 @@ public class Main {
         hypotheekDossier.addLening(new Annuiteit( 300000, 3600));
 
         // 5 voeg Nieuwbouw-woning toe
-        hypotheekDossier.addWoning(new Nieuwbouw("Goudsmidstraat 555", 686868));
+        hypotheekDossier.addWoning(new Nieuwbouw("Goudsmidstraat 12", 121212));
 
         // 6 ,,   Zelfbouw-woning toe
-        hypotheekDossier.addWoning(new Zelfbouw("Vlinderstraat 555", 686868));
-        hypotheekDossier.addWoning(new Zelfbouw("Hoekhuis 555", 686868));
+        hypotheekDossier.addWoning(new Zelfbouw("Vlinderstraat 16A", 343434));
+        hypotheekDossier.addWoning(new Zelfbouw("Hoekhuis 55", 565656));
 
         // 7 druk de gegevens af
         // Druk persoon gegevens af:
@@ -37,7 +37,6 @@ public class Main {
         hypotheekDossier.gettotaalGeldBedragLeningen();
 
         // Druk woning af:
-        //System.out.println("Tijdelijk: " + hypotheekDossier.getPersoon().getAdres());
         hypotheekDossier.printWoningGegevens();
 
 
