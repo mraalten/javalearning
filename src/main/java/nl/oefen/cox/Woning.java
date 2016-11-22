@@ -11,7 +11,7 @@ public abstract class Woning {
         adres = new Adres(straatnaam);
     }
 
-
-
-
+    public Adres getAdres() {
+        return adres;
+    }
 }

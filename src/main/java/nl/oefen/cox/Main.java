@@ -30,12 +30,15 @@ public class Main {
 
         // 7 druk de gegevens af
         // Druk persoon gegevens af:
-        hypotheekDossier.getPersoon().printPersoonGegevens();
+
+
 
         // Druk Lening geld totaal af:
         hypotheekDossier.gettotaalGeldBedragLeningen();
 
         // Druk woning af:
+        //System.out.println("Tijdelijk: " + hypotheekDossier.getPersoon().getAdres());
+        hypotheekDossier.printWoningGegevens();
 
 
         // Print aantal leningen

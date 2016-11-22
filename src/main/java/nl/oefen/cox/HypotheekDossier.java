@@ -27,6 +27,13 @@ public class HypotheekDossier {
     public void addLening(Lening lening) {
         totaalGeldBedragLeningen = totaalGeldBedragLeningen + lening.getBedrag();
         leningen.add(lening);
+    }
+
+    public void printWoningGegevens(){
+        for(Woning woning : woningen) {
+            System.out.println(woning.getAdres());
+        }
+
 
     }
 
