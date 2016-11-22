@@ -20,7 +20,6 @@ public abstract class Lening   {
         return "Woningadres: " + adres + " Betreft bouw: " + getbouw() + " Bedrag: " + getPrefix() ;
 
     }
-    abstract int getPrefix();
-
+    abstract int getPrefix()
 
 }
