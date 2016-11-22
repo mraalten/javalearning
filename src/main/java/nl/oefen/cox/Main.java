@@ -43,7 +43,8 @@ public class Main {
         // Print aantal woningen
         hypotheekDossier.getAantalWoningen();
 
-
+        // Print alle leningen + omschrijving
+        hypotheekDossier.printLeningGegevens();
 
 
 

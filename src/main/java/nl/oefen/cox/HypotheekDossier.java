@@ -35,6 +35,12 @@ public class HypotheekDossier {
         }
     }
 
+    public void printLeningGegevens(){
+        for(Lening lening : leningen) {
+            System.out.println(lening.toString());
+        }
+    }
+
     public void addWoning(Woning woning){
         woningen.add(woning);
     }
