@@ -15,5 +15,12 @@ public abstract class Lening   {
         return bedrag;
     }
 
+    @Override
+    public String toString() {
+        return "Woningadres: " + adres + " Betreft bouw: " + getbouw() + " Bedrag: " + getPrefix() ;
+
+    }
+    abstract int getPrefix();
+
 
 }

@@ -31,14 +31,11 @@ public class Main {
         // 7 druk de gegevens af
         // Druk persoon gegevens af:
 
-
-
         // Druk Lening geld totaal af:
         hypotheekDossier.gettotaalGeldBedragLeningen();
 
         // Druk woning af:
         hypotheekDossier.printWoningGegevens();
-
 
         // Print aantal leningen
         hypotheekDossier.getAantalLeningen();

@@ -35,7 +35,6 @@ public class HypotheekDossier {
         }
     }
 
-
     public void addWoning(Woning woning){
         woningen.add(woning);
     }
