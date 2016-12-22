@@ -1,6 +1,7 @@
-hardwinBankApp.controller('ZoekController', ['$scope', '$rootScope', '$timeout', '$http', '$q', '$location', 'HardWinBankService', function($scope, $rootScope, $timeout, $http, $q, $location, HardWinBankService) {
+hardwinBankApp.controller('ZoekController', ['$scope', 'HardWinBankService', function($scope, HardWinBankService) {
     var self = this;
     var ophalenProduktenUrl            = 'ophalenprodukten';
+    var rekeningen = {};
 
     $scope.zoekenRekening = function () {
         zoekenRekening($scope.rekeningNummer);
@@ -11,7 +12,7 @@ hardwinBankApp.controller('ZoekController', ['$scope', '$rootScope', '$timeout',
     function zoekenRekening(rekeningNummer) {
         HardWinBankService.findRekeningen(rekeningNummer).then(
             function (responsedata) { // success
-                $scope.rekeningen = responsedata.rekeningen;
+                $scope.rekeningen = responsedata.rekeningenViewModel.rekeningen;
             }, function () { // error
                 alert('Fout bij het ophalen van de produkten voor een produktgroep');
             }

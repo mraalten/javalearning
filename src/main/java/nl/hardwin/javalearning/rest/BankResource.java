@@ -1,5 +1,13 @@
 package nl.hardwin.javalearning.rest;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+
 import nl.hardwin.javalearning.domain.Bank;
 import nl.hardwin.javalearning.domain.Rekening;
 import nl.hardwin.javalearning.rest.zoeken.RekeningenViewModel;
@@ -7,13 +15,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import java.time.LocalDate;
-import java.util.List;
 
 
 @Component

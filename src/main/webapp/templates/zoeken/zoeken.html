@@ -11,9 +11,18 @@
         </tr>
     </table>
     <h2>Overzicht</h2>
-    <div data-ng-repeat="rekening in rekeningen">
-        <div>
-            {rekening.naam}
-        </div>
-    </div>
+    <table data-ng-show="rekeningen">
+        <tr>
+            <td>Rekeninghouder</td>
+            <td>Rekeningnummer</td>
+            <td>Saldo</td>
+        </tr>
+        <tr data-ng-repeat="rekening in rekeningen">
+            <div>
+                <td>{{rekening.naam}}</td>
+                <td>{{rekening.rekeningNummer}}</td>
+                <td>{{rekening.saldo}}</td>
+            </div>
+        </tr>
+    </table>
 </div>

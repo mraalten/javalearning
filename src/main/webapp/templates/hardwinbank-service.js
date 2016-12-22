@@ -1,4 +1,4 @@
-hardwinBankApp.factory('HardWinBankService', ['$scope', '$http', '$rootScope', '$timeout', '$q', function($scope, $http, $rootScope, $timeout, $q) {
+hardwinBankApp.factory('HardWinBankService', ['$http', '$rootScope', '$timeout', '$q', function($http, $rootScope, $timeout, $q) {
     var baseUrl                = 'hardwinbank/';
     var zoekenRekeningenUrl    = "zoekenRekeningen";
     var page = 'PRODUKTGROEPEN';
@@ -11,19 +11,8 @@ hardwinBankApp.factory('HardWinBankService', ['$scope', '$http', '$rootScope', '
     return service;
 
     function findRekeningen(rekeningNummer) {
-        var deferred = $q.defer();
-
         var params =  {rekeningNummer: rekeningNummer};
-        doGet(zoekenRekeningenUrl, params).then(
-            function (responsedata) { // success
-                $scope.rekeningen = responsedata.rekeningenViewModel;
-                deferred.resolve();
-            }, function () { // error
-                alert('Fout bij zoeken van rekeningen');
-                deferred.reject();
-            }
-        );
-        return deferred.promise;
+        return doGet(zoekenRekeningenUrl, params);
     }
 
     function doGet(requestUrl, params) {

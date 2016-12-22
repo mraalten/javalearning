@@ -1,10 +1,10 @@
 package nl.hardwin.javalearning.rest.zoeken;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import lombok.Getter;
 import lombok.Setter;
 import nl.hardwin.javalearning.domain.Rekening;
-
-import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @Setter
@@ -21,7 +21,9 @@ public class RekeningViewModel {
 
     public static RekeningViewModel toViewModel(Rekening rekening) {
         RekeningViewModel viewModel = new RekeningViewModel();
-        //viewModel.setNaam(rekening.getVolledigeNaam());
+        viewModel.setRekeningNummer(rekening.getRekeningNummer());
+        viewModel.setNaam(rekening.getVolledigeNaam());
+        viewModel.setSaldo(rekening.getSaldo());
         return viewModel;
     }
 
