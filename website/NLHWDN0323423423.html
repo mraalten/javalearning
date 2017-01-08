@@ -1,0 +1,64 @@
+
+<html>
+<head>
+    <title>HardWin Bank Homepage</title>
+    <link rel="stylesheet" type="text/css" href="css\theme.css">
+</head>
+<body data-ng-app="hardwinBankApp">
+<div>
+    <div class="header">
+        <center>        <img src="images\HardWinLogo.jpg" height="300px" width="800px"></center>
+    </div>
+
+    <div class="menu">
+        <a href="zoeken.html" class="button">ZOEKEN</a>
+
+
+    </div>
+
+    <div class="invoer" data-ng-controller="ZoekController">
+        <h2>Overzicht</h2>
+        <table>
+            <tr><td>NLHWDN0323423423</td><td></td></tr>
+            <tr><td width="440px">Betaalrekening</td><td>Saldo: 300 C</td></tr>
+            <tr><td><a href="overboeken.html"><input type="submit" class="button" data-ng-click="zoekenRekening()" value="Geld overboeken" /></a></td><td></td></tr>
+        </table>
+        <h2>Transacties</h2>
+        <table>
+            <tr>
+                <td width="180px">Datum</td>
+                <td width="130px">Op-/afname</td>
+                <td width="180px">Omschrijving</td>
+                <td>Bedrag</td>
+            </tr>
+            <tr>
+                <td>05-12-2016</td>
+                <td>C</td>
+                <td>Opening rekening</td>
+                <td>150</td>
+            </tr>
+            <tr>
+                <td>08-12-2016</td>
+                <td>C</td>
+                <td>Salaris</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td>31-12-2016</td>
+                <td>D</td>
+                <td>Rente lening</td>
+                <td>630</td>
+            </tr>
+            <tr>
+                <td>03-01-2017</td>
+                <td>D</td>
+                <td>Vakantie</td>
+                <td>1220</td>
+            </tr>
+
+        </table>
+    </div>
+
+
+</div>
+

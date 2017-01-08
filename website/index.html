@@ -1,0 +1,32 @@
+
+<html>
+<head>
+    <title>HardWin Bank Homepage</title>
+    <link rel="stylesheet" type="text/css" href="css\theme.css">
+</head>
+<body data-ng-app="hardwinBankApp">
+<div>
+    <div class="header">
+        <center>        <img src="images\HardWinLogo.jpg" height="300px" width="800px"></center>
+    </div>
+
+    <div class="menu">
+
+        <a href="zoeken.html" class="button">ZOEKEN</a>
+
+    </div>
+
+    <div>
+        <div ng-view></div>
+    </div>
+
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="js\app.js"></script>
+<script src="templates\hardwinbank-service.js"></script>
+<script src="templates\zoeken\zoeken.js"></script>
+
+</body>
+
+</html>

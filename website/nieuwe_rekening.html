@@ -1,0 +1,62 @@
+
+<html>
+<head>
+    <title>HardWin Bank Homepage</title>
+    <link rel="stylesheet" type="text/css" href="css\theme.css">
+</head>
+<body data-ng-app="hardwinBankApp">
+<div>
+    <div class="header">
+        <center>        <img src="images\HardWinLogo.jpg" height="300px" width="800px"></center>
+    </div>
+
+    <div class="menu">
+
+        <a href="zoeken.html" class="button">ZOEKEN</a>
+
+
+
+    </div>
+
+    <div class="invoer" data-ng-controller="ZoekController">
+        <h2>Nieuwe rekening openen</h2>
+        <h3>Persoonsgegevens</h3>
+        <table>
+            <tr><td>Richard Aalten</td><td></td></tr>
+            <tr><td>Voorthuizerstraat 47</td><td>  </td></tr>
+            <tr><td>3881SB  Putten</td><td></td></tr>
+        </table>
+        <h3>Rekeninggegevens</h3>
+        <table>
+            <tr>
+                <td>Type rekening</td>
+                <td>
+                    <select>
+                        <option value="betaal">Betaalrekening</option>
+                        <option value="spaar">Spaarrekening</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Startsaldo</td>
+                <td><input type="text" name="saldo"></td>
+            </tr>
+            <tr>
+                <td>Kredietlimiet</td>
+                <td>
+                    <select>
+                        <option value="betaal">Geen</option>
+                        <option value="spaar">250</option>
+                        <option value="spaar">500</option>
+                        <option value="spaar">1000</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="rekening_geopend.html"><input type="submit" class="button" data-ng-click="zoekenRekening()" value="Open rekening" /></a> </td>
+            </tr>
+        </table>
+        <br/>
+    </div>
+</div>
+

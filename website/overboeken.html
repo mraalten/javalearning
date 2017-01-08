@@ -1,0 +1,49 @@
+
+<html>
+<head>
+    <title>HardWin Bank Homepage</title>
+    <link rel="stylesheet" type="text/css" href="css\theme.css">
+</head>
+<body data-ng-app="hardwinBankApp">
+<div>
+    <div class="header">
+        <center>        <img src="images\HardWinLogo.jpg" height="300px" width="800px"></center>
+    </div>
+
+    <div class="menu">
+
+        <a href="zoeken.html" class="button">ZOEKEN</a>
+
+
+
+    </div>
+
+    <div class="invoer" data-ng-controller="ZoekController">
+        <div class="left">
+            <h2>Geld overboeken</h2>
+            <table>
+                <tr><td>Van</td><td>NLHWDN0656543329</td><td></td></tr>
+                <tr><td>Naar</td><td><input type="text" name="naar"></td></tr>
+                <tr><td>Bedrag</td><td><input type="text" name="bedrag"> (max. 500)</td></tr>
+                <tr>
+                    <td><a href="overgeboekt.html"><input type="submit" class="button" data-ng-click="zoekenRekening()" value="Overboeken" /></a> </td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="right">
+            <br/><br/><br/>
+            <table>
+                <tr>
+                    <td><a href="overgeboekt.html"><input type="submit" class="button" data-ng-click="zoekenRekening()" value="Rekeningnr. zoeken" /></a></td>
+                </tr>
+            </table>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </div>
+        <br/>
+    </div>
+</div>
+

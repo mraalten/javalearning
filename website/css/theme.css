@@ -1,0 +1,45 @@
+.header {
+    background-color: #95D7ED;
+    align-content: center;
+}
+
+.menu {
+    margin-left: 150px;
+    border-radius: 25px;
+    background: #8AC007;
+    padding: 20px;
+    width: 1200px;
+    background-color: #CBF76A;
+}
+
+.invoer {
+    background-color: #95D7ED;
+    align-content: center;
+    margin: auto;
+    width: 48%;
+    /*height: 190px;*/
+    padding-left: 10px;
+    padding-top: 0.5px;
+}
+
+.button {
+    box-shadow: 0 5px #119e4d;
+    border-radius: 7px;
+    background: #19BFF7;
+    color: #ffffff;
+    font-size: 15px;
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 15px;
+    text-align: center;
+    width: 150px;
+    height: 30px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    margin-top: 14px;
+}
