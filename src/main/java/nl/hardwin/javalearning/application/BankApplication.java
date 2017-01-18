@@ -1,6 +1,7 @@
 package nl.hardwin.javalearning.application;
 
 import nl.hardwin.javalearning.domain.Bank;
+import nl.hardwin.javalearning.domain.Betaalrekening;
 
 import java.time.LocalDate;
 
@@ -9,37 +10,16 @@ public class BankApplication {
 
     public static void main(String[] args) {
 
-//        String rekeningNrRichard = rabobank.openRekening("BSN1212", "Richard", LocalDate.of(1970, 4, 9), 150, "ja");
-//        rabobank.deposit(rekeningNrRichard, 175);
-//        rabobank.printOverzichtTransacties(rekeningNrRichard);
-//        rabobank.withdraw(rekeningNrRichard, 500);
-//        rabobank.printOverzichtTransacties(rekeningNrRichard);
-//        rabobank.getSaldo(rekeningNrRichard);
-//        rabobank.withdraw(rekeningNrRichard, 425);
-//        rabobank.getSaldo(rekeningNrRichard);
+        //rabobank.openBetaalrekening("5623452345", "Edwin Cox", LocalDate.of(1984, 6, 6),2000, 400);
 
-//        String spaarrekeningNrEdwin = rabobank.openSpaarrekening("BSN997766", "Edwin Spaar", LocalDate.of(1988, 6, 3), 1500, 0);
-//        rabobank.getSpaarSaldo(spaarrekeningNrEdwin);
-//
-//
-//        System.out.println(rabobank.getSpaarSaldo(spaarrekeningNrEdwin));
-
-        String betaalrekeningNrEdwin = rabobank.openBetaalrekening("BSN112233", "Edwin Betaalrekening", LocalDate.of(1988, 6, 3), 2000, 500);
-        //System.out.println("Damn: " + rabobank.getSaldo(betaalrekeningNrEdwin));
-        rabobank.deposit(betaalrekeningNrEdwin, 40);
+        //rabobank.openSpaarrekening("5623452345", "Nicolette Cox", LocalDate.of(1984, 6, 18),4500, 250);
 
 
-//        String rekeningNrEdwin = rabobank.openRekening("BSN2626","Edwin", LocalDate.of(1984, 7, 2), 150, "nee");
-//        rabobank.withdraw(rekeningNrEdwin, 75);
-//        rabobank.deposit(rekeningNrEdwin, 2300);
-//        rabobank.printOverzichtTransacties(rekeningNrEdwin);
-//        rabobank.getSaldo(rekeningNrEdwin);
-//
-//        printTotalSavings();
-//        rabobank.transferMoney(rekeningNrEdwin, rekeningNrRichard, 25);
-//        rabobank.printOverzichtTransacties(rekeningNrEdwin);
-//
-//        printTotalSavings();
+        Betaalrekening betaalrekeningEdwin = rabobank.openBetaalrekening("5623452345", "Edwin Cox", LocalDate.of(1984, 6, 6),2000, 400);
+        betaalrekeningEdwin.getSaldo();
+
+
+
     }
 
     private static void printTotalSavings() {

@@ -1,13 +1,20 @@
 package nl.hardwin.javalearning.domain;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import org.junit.Test;
 
 import java.time.LocalDate;
 
-import org.junit.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
 
 public class BetaalrekeningTest {
+
+    @Test
+    public void it(){
+        Betaalrekening betaalrekening = new Betaalrekening(500, 500, new Persoon("Edwin Cox", LocalDate.of(1984, 6, 18)));
+
+    }
+
 
     @Test
     public void it_should_withdraw_since_enough_saldo() {
@@ -15,6 +22,8 @@ public class BetaalrekeningTest {
         betaalrekening.geldOpnemen(80);
         assertThat(betaalrekening.getSaldo(), is(20));
     }
+
+
 
     @Test
     public void it_should_withdraw_since_exactly_enough_saldo() {
@@ -42,4 +51,14 @@ public class BetaalrekeningTest {
         Betaalrekening betaalrekening = new Betaalrekening(100, 50, new Persoon("Richard", LocalDate.of(1970, 4, 9)));
         betaalrekening.geldOpnemen(160);
     }
+
+    @Test
+    public void it_should_deposit_money_to_the_account() {
+        Betaalrekening betaalrekening = new Betaalrekening(100, 50, new Persoon("Richard", LocalDate.of(1970, 4, 9)));
+        betaalrekening.stortGeld(140);
+        assertThat(betaalrekening.getSaldo(), is(240));
+    }
+
+
+
 }

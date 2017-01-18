@@ -1,7 +1,5 @@
-package nl.hardwin.javalearning;
+package nl.hardwin.javalearning.domain;
 
-import nl.hardwin.javalearning.domain.OpAfnameType;
-import nl.hardwin.javalearning.domain.Transactie;
 import org.junit.Test;
 
 import java.math.BigDecimal;

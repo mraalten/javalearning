@@ -11,21 +11,12 @@ public class Spaarrekening extends Rekening {
         super(saldo, kredietlimiet, persoon);
     }
 
+
+
     @Override
     String getPrefix() {
         return SPAARREKENING_PREFIX;
     }
-
-    @Override
-    public void stortGeld(int amountToDeposit) {
-
-    }
-
-    @Override
-    public void geldOpnemen(int amountToWithdraw) {
-
-    }
-
 
 }
 

@@ -13,6 +13,7 @@ public abstract class Rekening {
     protected int saldo;
     private String rekeningnummer;
 
+
     List<Transactie> transacties = new ArrayList<>();
     protected int kredietLimiet;
 
@@ -25,6 +26,7 @@ public abstract class Rekening {
         this.kredietLimiet = -kredietLimiet;
         this.persoon = persoon;
     }
+
 
     private String generateRekeningNummer() {
         Random randomGenerator = new Random();
@@ -42,11 +44,6 @@ public abstract class Rekening {
         return transacties;
     }
 
-    public String getVolledigeNaam() {
-        return persoon.getVolledigeNaam();
-    }
-
-
     @Override
     public String toString() {
         return "Bankaccount{" +
@@ -56,10 +53,6 @@ public abstract class Rekening {
     }
 
     public int getSaldo() {
-        return saldo;
-    }
-
-    public int getSpaarSaldo(){
         return saldo;
     }
 
@@ -86,10 +79,6 @@ public abstract class Rekening {
         return saldoNaOpname < 0 && saldoNaOpname < kredietLimiet;
     }
 
-    public void setCustomer(Persoon persoon) {
-        this.persoon = persoon;
-    }
-
     public void printTransactie(){
         System.out.println("Afschrijft van: " + persoon.getNaam());
         System.out.println("Betreft rekeningnummer: " + rekeningnummer);
@@ -106,6 +95,4 @@ public abstract class Rekening {
         return rekeningnummer;
     }
 
-
 }
-
