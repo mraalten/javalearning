@@ -15,18 +15,18 @@ public class Bank {
     private Map<String, Persoon> personen = new HashMap<>();
     private int totalAmountSavings;
 
-    public String openBetaalrekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo, int kredietLimiet) {
+    public Betaalrekening openBetaalrekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo, int kredietLimiet) {
         Persoon persoon = findperson(bsnNummer, naam, geboorteDatum);
         Betaalrekening betaalrekening = new Betaalrekening(saldo, kredietLimiet, persoon);
         addRekening(betaalrekening, naam, geboorteDatum);
-        return betaalrekening.getRekeningNummer();
+        return betaalrekening;
     }
 
-    public String openSpaarrekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo, int kredietLimiet){
+    public Spaarrekening openSpaarrekening(String bsnNummer, String naam, LocalDate geboorteDatum, int saldo, int kredietLimiet){
         Persoon persoon = findperson(bsnNummer, naam, geboorteDatum);
         Spaarrekening spaarrekening = new Spaarrekening(saldo, kredietLimiet, persoon);
         addRekening(spaarrekening, naam, geboorteDatum);
-        return spaarrekening.getRekeningNummer();
+        return spaarrekening;
     }
 
     private void addRekening(Rekening rekening, String naam, LocalDate geboorteDatum) {
@@ -64,9 +64,7 @@ public class Bank {
      */
     public synchronized void deposit(String rekeningNummer, int amountToDeposit) {
         Rekening rekening = getRekening(rekeningNummer);
-        //rekening.stortGeld(amountToDeposit);
         rekening.stortGeld(amountToDeposit);
-
         totalAmountSavings = totalAmountSavings + amountToDeposit;
     }
 
@@ -78,7 +76,7 @@ public class Bank {
         return rekening;
     }
 
-    public void withdraw(String rekeningNummer, int amountToWithdraw) {
+    public synchronized void withdraw(String rekeningNummer, int amountToWithdraw) {
         Rekening rekening = getRekening(rekeningNummer);
         rekening.geldOpnemen(amountToWithdraw);
         totalAmountSavings = totalAmountSavings - amountToWithdraw;
@@ -92,16 +90,7 @@ public class Bank {
     public void transferMoney(String rekeningNummerFrom, String rekeningNummerTo, int amount){
         withdraw(rekeningNummerFrom, amount);
         deposit(rekeningNummerTo, amount);
-    }
 
-    public int getSaldo(String rekeningNummer){
-        Rekening rekening = getRekening(rekeningNummer);
-        return rekening.getSaldo();
-    }
-
-    public int getSpaarSaldo(String rekeningNummer){
-        Rekening rekening = getRekening(rekeningNummer);
-        return rekening.getSpaarSaldo();
     }
 
     public List<Rekening> getAllRekeningen() {
